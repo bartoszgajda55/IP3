@@ -29,7 +29,8 @@ install:
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-  if: branch = develop
+
+before_deploy:
   - npm build --base-href /IP3/
   - mv dist/IP3/index.html dist/IP3/404.html
 
