@@ -29,3 +29,14 @@ install:
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  if: branch = develop
+  - npm build --base-href /IP3/
+  - mv dist/IP3/index.html dist/IP3/404.html
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/IP3
+  on:
+    branch: develop
