@@ -5,6 +5,14 @@ language: node_js
 node_js:
   - '10'
 
+branches:
+  only:
+  - develop
+  - master
+  
+notifications:
+  email: false
+
 addons:
   apt:
     sources:
