@@ -8,6 +8,7 @@ import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
 })
 export class SideNavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
+  title: string = "IP3 Weather Application";
 
   private _mobileQueryListener: () => void;
 
