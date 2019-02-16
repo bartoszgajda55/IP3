@@ -8,7 +8,7 @@
 
   <mat-sidenav-container
     class="side-nav__container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+    [class.container--extra-margin]="mobileQuery.matches"
   >
     <mat-sidenav
       #snav

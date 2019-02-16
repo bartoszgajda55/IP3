@@ -20,5 +20,9 @@
   }
   .side-nav__container {
     flex: 1;
+    margin-top: 0;
+    &.container--extra-margin {
+      margin-top: 56px;
+    }
   }
 }
