@@ -11,11 +11,11 @@ export class SideNavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   title: string = "IP3 Weather Application";
   navLinks: NavigationLink[] = [
-    { name: "Overview", link: "overview" },
-    { name: "Weather Map", link: "weather" },
-    { name: "Earthquakes Map", link: "earthquakes" },
-    { name: "Authors", link: "authors" },
-    { name: "Tutorial", link: "tutorial" }
+    { name: "Overview", href: "overview" },
+    { name: "Weather Map", href: "weather" },
+    { name: "Earthquakes Map", href: "earthquakes" },
+    { name: "Authors", href: "authors" },
+    { name: "Tutorial", href: "tutorial" }
   ];
 
   private _mobileQueryListener: () => void;

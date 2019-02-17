@@ -1,4 +1,4 @@
 export interface NavigationLink {
   name: string;
-  link: string;
+  href: string;
 }
