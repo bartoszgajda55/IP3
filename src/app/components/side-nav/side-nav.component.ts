@@ -1,11 +1,17 @@
 import { MediaMatcher } from "@angular/cdk/layout";
-import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  ViewEncapsulation
+} from "@angular/core";
 import { NavigationLink } from "src/app/interfaces/navigation-link";
 
 @Component({
   selector: "app-side-nav",
   templateUrl: "./side-nav.component.html",
-  styleUrls: ["./side-nav.component.scss"]
+  styleUrls: ["./side-nav.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class SideNavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
