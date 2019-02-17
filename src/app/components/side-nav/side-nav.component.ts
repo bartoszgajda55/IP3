@@ -1,5 +1,6 @@
 import { MediaMatcher } from "@angular/cdk/layout";
 import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
+import { NavigationLink } from "src/app/interfaces/navigation-link";
 
 @Component({
   selector: "app-side-nav",
@@ -9,6 +10,13 @@ import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
 export class SideNavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   title: string = "IP3 Weather Application";
+  navLinks: NavigationLink[] = [
+    { name: "Overview", link: "overview" },
+    { name: "Weather Map", link: "weather" },
+    { name: "Earthquakes Map", link: "earthquakes" },
+    { name: "Authors", link: "authors" },
+    { name: "Tutorial", link: "tutorial" }
+  ];
 
   private _mobileQueryListener: () => void;
 
