@@ -21,6 +21,7 @@
           *ngFor="let link of navLinks"
           mat-list-item
           routerLink="{{ link.href }}"
+          (click)="snav.toggle()"
           >{{ link.name }}</a
         >
       </mat-nav-list>
