@@ -28,7 +28,14 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <ng-content></ng-content>
+      <div
+        fxFlex="auto"
+        fxFlex.gt-xs="600px"
+        fxFlex.gt-sm="960px"
+        fxFlex.gt-md="1280px"
+      >
+        <ng-content></ng-content>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
