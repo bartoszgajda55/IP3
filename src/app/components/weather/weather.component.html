@@ -8,7 +8,27 @@
         This page allows to choose location, and receive relevant weather
         information in that area.
       </p>
-      <agm-map [latitude]="lat" [longitude]="lng">
+      <div class="weather__form">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Search for place"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="off"
+            type="text"
+            class=""
+            #search
+            [formControl]="searchControl"
+          />
+        </mat-form-field>
+      </div>
+      <agm-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [scrollwheel]="false"
+        [zoom]="zoom"
+      >
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
       </agm-map>
     </mat-card-content>

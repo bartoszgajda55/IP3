@@ -3,4 +3,11 @@
   agm-map {
     height: 300px;
   }
+  .weather__form {
+    display: flex;
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+  }
 }

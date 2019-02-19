@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherComponent } from "./components/weather/weather.component";
 import { AgmCoreModule } from "@agm/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,9 +25,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     BrowserAnimationsModule,
     MaterialModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyA0BilKDfOK6zV0awR3h9cHnde9tpg0zEY"
+      apiKey: "AIzaSyA0BilKDfOK6zV0awR3h9cHnde9tpg0zEY",
+      libraries: ["places"]
     }),
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
