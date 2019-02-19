@@ -2,6 +2,8 @@
 import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
+import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
+import { CurrentWeather } from "src/app/interfaces/current-weather";
 
 @Component({
   selector: "app-weather",
@@ -17,7 +19,7 @@ export class WeatherComponent {
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private weatherService: OpenWeatherService) {}
 
   ngOnInit() {
     this.initializeFields();
@@ -53,20 +55,19 @@ export class WeatherComponent {
     this.fetchWeatherByLocation(place);
   }
 
-  private fetchWeatherByLocation(
-    location: google.maps.places.PlaceResult
-  ): void {
-    console.log(location);
+  private fetchWeatherByLocation(location: google.maps.places.PlaceResult): void {
+    this.weatherService
+      .getCurrentWeatherByCoordinates(location.geometry.location.lat(), location.geometry.location.lng())
+      .subscribe((data: CurrentWeather) => {
+        console.log(data);
+      });
   }
 
   private attachListenerToSearchBox(): void {
     this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(
-        this.searchElementRef.nativeElement,
-        {
-          types: ["(cities)"]
-        }
-      );
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["(cities)"]
+      });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           this.updateMapWithPlace(autocomplete);

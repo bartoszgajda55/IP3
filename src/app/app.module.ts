@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherComponent } from "./components/weather/weather.component";
 
 import { OpenWeatherService } from "./services/open-weather/open-weather.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OpenWeatherService } from "./services/open-weather/open-weather.service
     }),
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [OpenWeatherService],
   bootstrap: [AppComponent]
