@@ -11,6 +11,7 @@ import { WeatherComponent } from "./components/weather/weather.component";
 import { AgmCoreModule } from "@agm/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyA0BilKDfOK6zV0awR3h9cHnde9tpg0zEY",
+      apiKey: environment.googleMapsKey,
       libraries: ["places"]
     }),
     FlexLayoutModule,

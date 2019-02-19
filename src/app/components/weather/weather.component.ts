@@ -41,7 +41,7 @@ export class WeatherComponent {
     this.searchControl = new FormControl();
   }
 
-  private updateMapWithPlace(parent: google.maps.places.Autocomplete) {
+  private updateMapWithPlace(parent: google.maps.places.Autocomplete): void {
     let place: google.maps.places.PlaceResult = parent.getPlace();
     if (place.geometry === undefined || place.geometry === null) {
       return;
@@ -49,9 +49,16 @@ export class WeatherComponent {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
     this.zoom = 12;
+    this.fetchWeatherByLocation(place);
   }
 
-  private attachListenerToSearchBox() {
+  private fetchWeatherByLocation(
+    location: google.maps.places.PlaceResult
+  ): void {
+    console.log(location);
+  }
+
+  private attachListenerToSearchBox(): void {
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement,
