@@ -19,35 +19,12 @@ export class WeatherComponent {
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
 
   ngOnInit() {
-    this.zoom = 12;
-    this.lat = 55.873543;
-    this.lng = -4.289058;
-    this.searchControl = new FormControl();
-
-    this.setCurrentPosition();
-
-    this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(
-        this.searchElementRef.nativeElement,
-        {
-          types: ["address"]
-        }
-      );
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-          this.lat = place.geometry.location.lat();
-          this.lng = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
+    this.initializeFields();
+    this.setDefaultPosition();
+    this.attachListenerToSearchBox();
   }
 
-  private setCurrentPosition() {
+  private setDefaultPosition(): void {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
@@ -55,5 +32,38 @@ export class WeatherComponent {
         this.zoom = 12;
       });
     }
+  }
+
+  private initializeFields(): void {
+    this.zoom = 12;
+    this.lat = 55.873543;
+    this.lng = -4.289058;
+    this.searchControl = new FormControl();
+  }
+
+  private updateMapWithPlace(parent: google.maps.places.Autocomplete) {
+    let place: google.maps.places.PlaceResult = parent.getPlace();
+    if (place.geometry === undefined || place.geometry === null) {
+      return;
+    }
+    this.lat = place.geometry.location.lat();
+    this.lng = place.geometry.location.lng();
+    this.zoom = 12;
+  }
+
+  private attachListenerToSearchBox() {
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(
+        this.searchElementRef.nativeElement,
+        {
+          types: ["(cities)"]
+        }
+      );
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          this.updateMapWithPlace(autocomplete);
+        });
+      });
+    });
   }
 }
