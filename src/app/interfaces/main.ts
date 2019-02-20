@@ -13,4 +13,6 @@ export interface Main {
   sea_level: number;
   /** Atmospheric pressure on the ground level, hPa */
   grnd_level: number;
+  /** Internal parameter */
+  temp_kf: number;
 }
