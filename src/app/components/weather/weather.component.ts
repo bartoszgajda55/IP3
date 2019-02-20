@@ -4,7 +4,7 @@ import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
 import { CurrentWeather } from "src/app/interfaces/current-weather";
-import { FiveDayForecast } from "src/app/interfaces/five-day-forecast";
+import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
 
 @Component({
   selector: "app-weather",
@@ -59,7 +59,7 @@ export class WeatherComponent {
   private fetchCurrentWeatherByLocation(location: google.maps.places.PlaceResult): void {
     this.weatherService
       .getFiveDayWeatherForecastByCoordinates(location.geometry.location.lat(), location.geometry.location.lng())
-      .subscribe((data: FiveDayForecast) => {
+      .subscribe((data: FiveDayWeatherForecast) => {
         console.log(data);
       });
   }

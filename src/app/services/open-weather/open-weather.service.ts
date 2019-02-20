@@ -3,7 +3,7 @@ import { CurrentWeather } from "src/app/interfaces/current-weather";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { FiveDayForecast } from "src/app/interfaces/five-day-forecast";
+import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
 
 @Injectable({
   providedIn: "root"
@@ -20,7 +20,7 @@ export class OpenWeatherService {
     return this.http.get<CurrentWeather>(`${this.apiUri}/weather?lat=${lat}&lon=${lng}`, { params: this.params });
   }
 
-  public getFiveDayWeatherForecastByCoordinates(lat: number, lng: number): Observable<FiveDayForecast> {
-    return this.http.get<FiveDayForecast>(`${this.apiUri}/forecast?lat=${lat}&lon=${lng}`, { params: this.params });
+  public getFiveDayWeatherForecastByCoordinates(lat: number, lng: number): Observable<FiveDayWeatherForecast> {
+    return this.http.get<FiveDayWeatherForecast>(`${this.apiUri}/forecast?lat=${lat}&lon=${lng}`, { params: this.params });
   }
 }

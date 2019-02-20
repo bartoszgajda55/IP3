@@ -1,7 +1,7 @@
 import { City } from "./city";
 import { Forecast } from "./forecast";
 
-export interface FiveDayForecast {
+export interface FiveDayWeatherForecast {
   /** Internal parameter */
   cod: number;
   /** Internal parameter */
