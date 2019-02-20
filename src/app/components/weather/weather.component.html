@@ -2,35 +2,38 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>Weather Map</mat-card-title>
+      <mat-card-subtitle
+        >This page allows to choose location, and receive relevant weather information in that area. It will also present you the current weather (if
+        available) and a 5 day forecast</mat-card-subtitle
+      >
     </mat-card-header>
     <mat-card-content>
-      <p class="weather__description">
-        This page allows to choose location, and receive relevant weather
-        information in that area.
-      </p>
-      <div class="weather__form">
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Search for place"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="off"
-            type="text"
-            class=""
-            #search
-            [formControl]="searchControl"
-          />
-        </mat-form-field>
+      <div class="weather__container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
+        <div class="weather__map" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
+          <h2 class="weather__header">Choose Location</h2>
+          <div class="weather__form">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Search for place"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="off"
+                type="text"
+                class=""
+                #search
+                [formControl]="searchControl"
+              />
+            </mat-form-field>
+          </div>
+          <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+        <div class="weather__forecast" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
+          <h2 class="weather__header">Current Weather</h2>
+        </div>
       </div>
-      <agm-map
-        [latitude]="lat"
-        [longitude]="lng"
-        [scrollwheel]="false"
-        [zoom]="zoom"
-      >
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
     </mat-card-content>
   </mat-card>
 </div>
