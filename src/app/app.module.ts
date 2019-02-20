@@ -15,14 +15,10 @@ import { WeatherComponent } from "./components/weather/weather.component";
 
 import { OpenWeatherService } from "./services/open-weather/open-weather.service";
 import { HttpClientModule } from "@angular/common/http";
+import { WeatherIconService } from "./services/weather-icon/weather-icon.service";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SideNavComponent,
-    PageNotFoundComponent,
-    WeatherComponent
-  ],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +33,7 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [OpenWeatherService],
+  providers: [OpenWeatherService, WeatherIconService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
