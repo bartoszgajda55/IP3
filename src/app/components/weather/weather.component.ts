@@ -16,6 +16,7 @@ export class WeatherComponent {
   public lng: number;
   public searchControl: FormControl;
   public zoom: number;
+  public currentLocationName: string;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -33,7 +34,6 @@ export class WeatherComponent {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        this.zoom = 12;
       });
     }
   }
@@ -43,6 +43,7 @@ export class WeatherComponent {
     this.lat = 55.873543;
     this.lng = -4.289058;
     this.searchControl = new FormControl();
+    this.currentLocationName = "Glasgow, UK";
   }
 
   private updateMapWithPlace(parent: google.maps.places.Autocomplete): void {
@@ -52,16 +53,14 @@ export class WeatherComponent {
     }
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
-    this.zoom = 12;
-    this.fetchCurrentWeatherByLocation(place);
+    this.currentLocationName = place.formatted_address;
+    this.fetchCurrentWeatherByLocation(this.lat, this.lng);
   }
 
-  private fetchCurrentWeatherByLocation(location: google.maps.places.PlaceResult): void {
-    this.weatherService
-      .getFiveDayWeatherForecastByCoordinates(location.geometry.location.lat(), location.geometry.location.lng())
-      .subscribe((data: FiveDayWeatherForecast) => {
-        console.log(data);
-      });
+  private fetchCurrentWeatherByLocation(lat: number, lng: number): void {
+    this.weatherService.getCurrentWeatherByCoordinates(lat, lng).subscribe((data: CurrentWeather) => {
+      console.log(data);
+    });
   }
 
   private attachListenerToSearchBox(): void {

@@ -10,7 +10,7 @@
     <mat-card-content>
       <div class="weather__container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
         <div class="weather__map" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
-          <h2 class="weather__header">Choose Location</h2>
+          <h3 class="weather__header">Choose Location</h3>
           <div class="weather__form">
             <mat-form-field>
               <input
@@ -31,7 +31,7 @@
           </agm-map>
         </div>
         <div class="weather__forecast" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
-          <h2 class="weather__header">Current Weather</h2>
+          <h3 class="weather__header">Current Weather in {{ currentLocationName }}</h3>
         </div>
       </div>
     </mat-card-content>
