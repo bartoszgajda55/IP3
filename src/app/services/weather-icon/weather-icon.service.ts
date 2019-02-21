@@ -64,8 +64,8 @@ export class WeatherIconService {
     // Group 800: Clear
     this.weatherIcon.set(800, "summer");
     // Group 80x: Clouds
-    this.weatherIcon.set(801, "partly-cloudy");
-    this.weatherIcon.set(802, "partly-cloudy");
+    this.weatherIcon.set(801, "partly-cloudy-day");
+    this.weatherIcon.set(802, "partly-cloudy-day");
     this.weatherIcon.set(803, "cloud-host");
     this.weatherIcon.set(804, "cloud-host");
   }
