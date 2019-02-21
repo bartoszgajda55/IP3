@@ -1,10 +1,12 @@
 /// <reference types="@types/googlemaps" />
-import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
+import { Component, ElementRef, NgZone, ViewChild, OnDestroy } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
 import { CurrentWeather } from "src/app/interfaces/current-weather";
 import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
+import { Observable } from "rxjs";
+import { WeatherIconService } from "src/app/services/weather-icon/weather-icon.service";
 
 @Component({
   selector: "app-weather",
@@ -17,11 +19,17 @@ export class WeatherComponent {
   public searchControl: FormControl;
   public zoom: number;
   public currentLocationName: string;
+  public currentWeather$: Observable<CurrentWeather>;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private weatherService: OpenWeatherService) {}
+  constructor(
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
+    private weatherService: OpenWeatherService,
+    private weatherIconService: WeatherIconService
+  ) {}
 
   ngOnInit() {
     this.initializeFields();
@@ -44,6 +52,7 @@ export class WeatherComponent {
     this.lng = -4.289058;
     this.searchControl = new FormControl();
     this.currentLocationName = "Glasgow, UK";
+    this.currentWeather$ = this.fetchCurrentWeatherByLocation(this.lat, this.lng);
   }
 
   private updateMapWithPlace(parent: google.maps.places.Autocomplete): void {
@@ -54,13 +63,11 @@ export class WeatherComponent {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
     this.currentLocationName = place.formatted_address;
-    this.fetchCurrentWeatherByLocation(this.lat, this.lng);
+    this.currentWeather$ = this.fetchCurrentWeatherByLocation(this.lat, this.lng);
   }
 
-  private fetchCurrentWeatherByLocation(lat: number, lng: number): void {
-    this.weatherService.getCurrentWeatherByCoordinates(lat, lng).subscribe((data: CurrentWeather) => {
-      console.log(data);
-    });
+  private fetchCurrentWeatherByLocation(lat: number, lng: number): Observable<CurrentWeather> {
+    return this.weatherService.getCurrentWeatherByCoordinates(lat, lng);
   }
 
   private attachListenerToSearchBox(): void {

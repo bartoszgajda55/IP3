@@ -17,10 +17,10 @@ export class OpenWeatherService {
   }
 
   public getCurrentWeatherByCoordinates(lat: number, lng: number): Observable<CurrentWeather> {
-    return this.http.get<CurrentWeather>(`${this.apiUri}/weather?lat=${lat}&lon=${lng}`, { params: this.params });
+    return this.http.get<CurrentWeather>(`${this.apiUri}/weather?lat=${lat}&lon=${lng}&units=metric`, { params: this.params });
   }
 
   public getFiveDayWeatherForecastByCoordinates(lat: number, lng: number): Observable<FiveDayWeatherForecast> {
-    return this.http.get<FiveDayWeatherForecast>(`${this.apiUri}/forecast?lat=${lat}&lon=${lng}`, { params: this.params });
+    return this.http.get<FiveDayWeatherForecast>(`${this.apiUri}/forecast?lat=${lat}&lon=${lng}&units=metric`, { params: this.params });
   }
 }

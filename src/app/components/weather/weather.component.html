@@ -30,8 +30,32 @@
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
           </agm-map>
         </div>
-        <div class="weather__forecast" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
-          <h3 class="weather__header">Current Weather in {{ currentLocationName }}</h3>
+        <div class="weather__current" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
+          <h3 class="current__header">Current Weather in {{ currentLocationName }}</h3>
+          <div *ngIf="(currentWeather$ | async) as currentWeather" class="current__container">
+            <div class="current__temperature">
+              <div class="value">{{ currentWeather.main.temp | number: "1.0-0" }}</div>
+              <div class="name">Temperature</div>
+            </div>
+            <div class="current__weather">
+              <div class="icon">
+                <img src="{{ this.weatherIconService.getIconPathByWeatherCode(currentWeather.weather[0].id) }}" alt="Weather Icon" />
+              </div>
+              <div class="name">{{ currentWeather.weather[0].description }}</div>
+            </div>
+            <div class="current__clouds">
+              <div class="value">{{ currentWeather.clouds.all }}%</div>
+              <div class="name">Clouds</div>
+            </div>
+            <div *ngIf="currentWeather.rain" class="current__rain">
+              <div class="value">{{ currentWeather.rain["3h"] }}</div>
+              <div class="name">Rain</div>
+            </div>
+            <div *ngIf="currentWeather.snow" class="current__snow">
+              <div class="value">{{ currentWeather.snow["3h"] }}</div>
+              <div class="name">Snow</div>
+            </div>
+          </div>
         </div>
       </div>
     </mat-card-content>
