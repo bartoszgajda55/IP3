@@ -8,69 +8,69 @@ export class WeatherIconService {
 
   constructor() {
     // Group 2xx: Thunderstorm
-    this.weatherIcon.set(200, "/assets/weather-icons/icons8-hail-storm-48.png");
-    this.weatherIcon.set(201, "/assets/weather-icons/icons8-hail-storm-48.png");
-    this.weatherIcon.set(202, "/assets/weather-icons/icons8-hail-storm-48.png");
-    this.weatherIcon.set(210, "/assets/weather-icons/icons8-electric-power-48.png");
-    this.weatherIcon.set(211, "/assets/weather-icons/icons8-electric-power-48.png");
-    this.weatherIcon.set(212, "/assets/weather-icons/icons8-electric-power-48.png");
-    this.weatherIcon.set(221, "/assets/weather-icons/icons8-electric-power-48.png");
-    this.weatherIcon.set(230, "/assets/weather-icons/icons8-rain-storm-48.png");
-    this.weatherIcon.set(231, "/assets/weather-icons/icons8-rain-storm-48.png");
-    this.weatherIcon.set(232, "/assets/weather-icons/icons8-rain-storm-48.png");
+    this.weatherIcon.set(200, "hail-storm");
+    this.weatherIcon.set(201, "hail-storm");
+    this.weatherIcon.set(202, "hail-storm");
+    this.weatherIcon.set(210, "electric-power");
+    this.weatherIcon.set(211, "electric-power");
+    this.weatherIcon.set(212, "electric-power");
+    this.weatherIcon.set(221, "electric-power");
+    this.weatherIcon.set(230, "rain-storm");
+    this.weatherIcon.set(231, "rain-storm");
+    this.weatherIcon.set(232, "rain-storm");
     // Group 3xx: Drizzle
-    this.weatherIcon.set(300, "/assets/weather-icons/icons8-light-rain-48.png");
-    this.weatherIcon.set(301, "/assets/weather-icons/icons8-light-rain-48.png");
-    this.weatherIcon.set(302, "/assets/weather-icons/icons8-light-rain-48.png");
-    this.weatherIcon.set(310, "/assets/weather-icons/icons8-light-rain-48.png");
-    this.weatherIcon.set(311, "/assets/weather-icons/icons8-moderate-rain-48.png");
-    this.weatherIcon.set(312, "/assets/weather-icons/icons8-moderate-rain-48.png");
-    this.weatherIcon.set(313, "/assets/weather-icons/icons8-moderate-rain-48.png");
-    this.weatherIcon.set(314, "/assets/weather-icons/icons8-moderate-rain-48.png");
-    this.weatherIcon.set(321, "/assets/weather-icons/icons8-moderate-rain-48.png");
+    this.weatherIcon.set(300, "light-rain");
+    this.weatherIcon.set(301, "light-rain");
+    this.weatherIcon.set(302, "light-rain");
+    this.weatherIcon.set(310, "light-rain");
+    this.weatherIcon.set(311, "moderate-rain");
+    this.weatherIcon.set(312, "moderate-rain");
+    this.weatherIcon.set(313, "moderate-rain");
+    this.weatherIcon.set(314, "moderate-rain");
+    this.weatherIcon.set(321, "moderate-rain");
     // Group 5xx: Rain
-    this.weatherIcon.set(500, "/assets/weather-icons/icons8-heavy-rain-48.png");
-    this.weatherIcon.set(501, "/assets/weather-icons/icons8-heavy-rain-48.png");
-    this.weatherIcon.set(502, "/assets/weather-icons/icons8-heavy-rain-48.png");
-    this.weatherIcon.set(503, "/assets/weather-icons/icons8-rainfall-48.png");
-    this.weatherIcon.set(504, "/assets/weather-icons/icons8-rainfall-48.png");
-    this.weatherIcon.set(511, "/assets/weather-icons/icons8-rainfall-48.png");
-    this.weatherIcon.set(520, "/assets/weather-icons/icons8-torrential-rain-48.png");
-    this.weatherIcon.set(521, "/assets/weather-icons/icons8-torrential-rain-48.png");
-    this.weatherIcon.set(522, "/assets/weather-icons/icons8-torrential-rain-48.png");
-    this.weatherIcon.set(531, "/assets/weather-icons/icons8-torrential-rain-48.png");
+    this.weatherIcon.set(500, "heavy-rain");
+    this.weatherIcon.set(501, "heavy-rain");
+    this.weatherIcon.set(502, "heavy-rain");
+    this.weatherIcon.set(503, "rainfall");
+    this.weatherIcon.set(504, "rainfall");
+    this.weatherIcon.set(511, "rainfall");
+    this.weatherIcon.set(520, "torrential-rain");
+    this.weatherIcon.set(521, "torrential-rain");
+    this.weatherIcon.set(522, "torrential-rain");
+    this.weatherIcon.set(531, "torrential-rain");
     // Group 6xx: Snow
-    this.weatherIcon.set(600, "/assets/weather-icons/icons8-light-snow-48.png");
-    this.weatherIcon.set(601, "/assets/weather-icons/icons8-light-snow-48.png");
-    this.weatherIcon.set(602, "/assets/weather-icons/icons8-light-snow-48.png");
-    this.weatherIcon.set(611, "/assets/weather-icons/icons8-falling-snow-48.png");
-    this.weatherIcon.set(612, "/assets/weather-icons/icons8-falling-snow-48.png");
-    this.weatherIcon.set(615, "/assets/weather-icons/icons8-falling-snow-48.png");
-    this.weatherIcon.set(616, "/assets/weather-icons/icons8-snow-fall-48.png");
-    this.weatherIcon.set(620, "/assets/weather-icons/icons8-snow-fall-48.png");
-    this.weatherIcon.set(621, "/assets/weather-icons/icons8-snow-fall-48.png");
-    this.weatherIcon.set(622, "/assets/weather-icons/icons8-snow-fall-48.png");
+    this.weatherIcon.set(600, "light-snow");
+    this.weatherIcon.set(601, "light-snow");
+    this.weatherIcon.set(602, "light-snow");
+    this.weatherIcon.set(611, "falling-snow");
+    this.weatherIcon.set(612, "falling-snow");
+    this.weatherIcon.set(615, "falling-snow");
+    this.weatherIcon.set(616, "snow-fall");
+    this.weatherIcon.set(620, "snow-fall");
+    this.weatherIcon.set(621, "snow-fall");
+    this.weatherIcon.set(622, "snow-fall");
     // Group 7xx: Atmosphere
-    this.weatherIcon.set(701, "/assets/weather-icons/icons8-haze-48.png");
-    this.weatherIcon.set(711, "/assets/weather-icons/icons8-haze-48.png");
-    this.weatherIcon.set(721, "/assets/weather-icons/icons8-haze-48.png");
-    this.weatherIcon.set(731, "/assets/weather-icons/icons8-spiral-dust-48.png");
-    this.weatherIcon.set(741, "/assets/weather-icons/icons8-dust-48.png");
-    this.weatherIcon.set(751, "/assets/weather-icons/icons8-dust-48.png");
-    this.weatherIcon.set(761, "/assets/weather-icons/icons8-dust-48.png");
-    this.weatherIcon.set(762, "/assets/weather-icons/icons8-volcano-48.png");
-    this.weatherIcon.set(771, "/assets/weather-icons/icons8-spiral-dust-48.png");
-    this.weatherIcon.set(781, "/assets/weather-icons/icons8-spiral-dust-48.png");
+    this.weatherIcon.set(701, "haze");
+    this.weatherIcon.set(711, "haze");
+    this.weatherIcon.set(721, "haze");
+    this.weatherIcon.set(731, "spiral-dust");
+    this.weatherIcon.set(741, "dust");
+    this.weatherIcon.set(751, "dust");
+    this.weatherIcon.set(761, "dust");
+    this.weatherIcon.set(762, "volcano");
+    this.weatherIcon.set(771, "spiral-dust");
+    this.weatherIcon.set(781, "spiral-dust");
     // Group 800: Clear
-    this.weatherIcon.set(800, "/assets/weather-icons/icons8-summer-48.png");
+    this.weatherIcon.set(800, "summer");
     // Group 80x: Clouds
-    this.weatherIcon.set(801, "/assets/weather-icons/icons8-partly-cloudy-48.png");
-    this.weatherIcon.set(802, "/assets/weather-icons/icons8-partly-cloudy-48.png");
-    this.weatherIcon.set(803, "/assets/weather-icons/icons8-cloud-host-48.png");
-    this.weatherIcon.set(804, "/assets/weather-icons/icons8-cloud-host-48.png");
+    this.weatherIcon.set(801, "partly-cloudy");
+    this.weatherIcon.set(802, "partly-cloudy");
+    this.weatherIcon.set(803, "cloud-host");
+    this.weatherIcon.set(804, "cloud-host");
   }
 
   public getIconPathByWeatherCode(code: number): string {
-    return this.weatherIcon.get(code);
+    return `/assets/weather-icons/icons8-${this.weatherIcon.get(code)}-48.png`;
   }
 }
