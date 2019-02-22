@@ -7,10 +7,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { MaterialModule } from "./modules/material/material.module";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { EarthquakeComponent } from './components/earthquake/earthquake.component';
+import { EarthquakesComponent } from './components/earthquakes/earthquakes.component';
+
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, EarthquakeComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, EarthquakesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
