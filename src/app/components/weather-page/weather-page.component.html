@@ -32,52 +32,7 @@
         </div>
         <div class="weather__current" fxFlex="0 1 50%" fxFlex.lt-md="0 1 100%">
           <h3 class="current__header">Current Weather in {{ currentLocationName }}</h3>
-          <div fxLayout="column" fxLayoutGap="30px" *ngIf="(currentWeather$ | async) as currentWeather" class="current__container">
-            <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="current__row-first">
-              <div class="current__temperature">
-                <div class="value">{{ currentWeather.main.temp | number: "1.0-0" }}&deg;C</div>
-                <div class="name">Temperature</div>
-              </div>
-              <div class="current__weather">
-                <div class="icon">
-                  <img src="{{ this.weatherIconService.getIconPathByWeatherCode(currentWeather.weather[0].id) }}" alt="Weather Icon" />
-                </div>
-                <div class="name">{{ currentWeather.weather[0].description | titlecase }}</div>
-              </div>
-            </div>
-            <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="current__row-second">
-              <div class="current__clouds">
-                <div class="value">{{ currentWeather.clouds.all }}%</div>
-                <div class="name">Clouds</div>
-              </div>
-              <div class="current__presure">
-                <div class="value">{{ currentWeather.main.pressure }} hPa</div>
-                <div class="name">Pressure</div>
-              </div>
-              <div class="current__humidity">
-                <div class="value">{{ currentWeather.main.humidity }}%</div>
-                <div class="name">Humidity</div>
-              </div>
-            </div>
-            <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="current__row-third">
-              <div *ngIf="currentWeather.rain" class="current__rain">
-                <div class="value">{{ currentWeather.rain["1h"] }}mm/h</div>
-                <div class="name">Rain</div>
-              </div>
-              <div *ngIf="currentWeather.snow" class="current__snow">
-                <div class="value">{{ currentWeather.snow["1h"] }}mm/h</div>
-                <div class="name">Snow</div>
-              </div>
-              <div class="current__sunrise">
-                <div class="value">{{ currentWeather.sys.sunrise * 1000 | date: "HH:mm" }}</div>
-                <div class="name">Sunrise</div>
-              </div>
-              <div class="current__sunset">
-                <div class="value">{{ currentWeather.sys.sunset * 1000 | date: "HH:mm" }}</div>
-                <div class="name">Sunset</div>
-              </div>
-            </div>
-          </div>
+          <app-weather-presenter *ngIf="(currentWeather$ | async) as currentWeather" [currentWeather]="currentWeather"></app-weather-presenter>
         </div>
       </div>
     </mat-card-content>
