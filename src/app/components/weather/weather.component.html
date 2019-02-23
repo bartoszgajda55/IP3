@@ -61,11 +61,11 @@
             </div>
             <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="current__row-third">
               <div *ngIf="currentWeather.rain" class="current__rain">
-                <div class="value">{{ currentWeather.rain["3h"] }}</div>
+                <div class="value">{{ currentWeather.rain["1h"] }}mm/h</div>
                 <div class="name">Rain</div>
               </div>
               <div *ngIf="currentWeather.snow" class="current__snow">
-                <div class="value">{{ currentWeather.snow["3h"] }}</div>
+                <div class="value">{{ currentWeather.snow["1h"] }}mm/h</div>
                 <div class="name">Snow</div>
               </div>
               <div class="current__sunrise">
