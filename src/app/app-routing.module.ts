@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 
 const routes: Routes = [
-  { path: "weather", component: WeatherComponent },
+  { path: "weather", component: WeatherPageComponent },
   { path: "earthquakes", component: PageNotFoundComponent },
   { path: "authors", component: PageNotFoundComponent },
   { path: "tutorial", component: PageNotFoundComponent },
@@ -13,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

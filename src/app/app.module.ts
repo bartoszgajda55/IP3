@@ -11,14 +11,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { WeatherComponent } from "./components/weather/weather.component";
+import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 
 import { OpenWeatherService } from "./services/open-weather/open-weather.service";
 import { HttpClientModule } from "@angular/common/http";
 import { WeatherIconService } from "./services/weather-icon/weather-icon.service";
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -10,10 +10,10 @@ import { WeatherIconService } from "src/app/services/weather-icon/weather-icon.s
 
 @Component({
   selector: "app-weather",
-  templateUrl: "./weather.component.html",
-  styleUrls: ["./weather.component.scss"]
+  templateUrl: "./weather-page.component.html",
+  styleUrls: ["./weather-page.component.scss"]
 })
-export class WeatherComponent {
+export class WeatherPageComponent {
   public lat: number;
   public lng: number;
   public searchControl: FormControl;
