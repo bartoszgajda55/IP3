@@ -14,7 +14,7 @@ export interface Forecast {
   weather: Weather;
   clouds: Clouds;
   wind: Wind;
-  rain: Rain;
-  snow: Snow;
+  rain?: Rain;
+  snow?: Snow;
   dt_txt: string;
 }

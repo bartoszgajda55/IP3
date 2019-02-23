@@ -6,7 +6,6 @@ import { OpenWeatherService } from "src/app/services/open-weather/open-weather.s
 import { CurrentWeather } from "src/app/interfaces/current-weather";
 import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
 import { Observable } from "rxjs";
-import { WeatherIconService } from "src/app/services/weather-icon/weather-icon.service";
 
 @Component({
   selector: "app-weather",

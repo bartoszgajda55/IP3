@@ -15,8 +15,8 @@ export interface CurrentWeather {
   main: Main;
   wind: Wind;
   clouds: Clouds;
-  rain: Rain;
-  snow: Snow;
+  rain?: Rain;
+  snow?: Snow;
   /** Time of data calculation, unix, UTC */
   dt: number;
   sys: Sys;
