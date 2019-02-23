@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutGap="30px" class="presenter__container">
+  <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="presenter__row-first">
+    <div class="presenter__temperature">
+      <div class="value">{{ currentWeather.main.temp | number: "1.0-0" }}&deg;C</div>
+      <div class="name">Temperature</div>
+    </div>
+    <div class="presenter__weather">
+      <div class="icon">
+        <img src="{{ this.weatherIconService.getIconPathByWeatherCode(currentWeather.weather[0].id) }}" alt="Weather Icon" />
+      </div>
+      <div class="name">{{ currentWeather.weather[0].description | titlecase }}</div>
+    </div>
+  </div>
+  <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="presenter__row-second">
+    <div class="presenter__clouds">
+      <div class="value">{{ currentWeather.clouds.all }}%</div>
+      <div class="name">Clouds</div>
+    </div>
+    <div class="presenter__presure">
+      <div class="value">{{ currentWeather.main.pressure }} hPa</div>
+      <div class="name">Pressure</div>
+    </div>
+    <div class="presenter__humidity">
+      <div class="value">{{ currentWeather.main.humidity }}%</div>
+      <div class="name">Humidity</div>
+    </div>
+  </div>
+  <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="presenter__row-third">
+    <div *ngIf="currentWeather.rain" class="presenter__rain">
+      <div class="value">{{ currentWeather.rain["1h"] }}mm/h</div>
+      <div class="name">Rain</div>
+    </div>
+    <div *ngIf="currentWeather.snow" class="presenter__snow">
+      <div class="value">{{ currentWeather.snow["1h"] }}mm/h</div>
+      <div class="name">Snow</div>
+    </div>
+    <div class="presenter__sunrise">
+      <div class="value">{{ currentWeather.sys.sunrise * 1000 | date: "HH:mm" }}</div>
+      <div class="name">Sunrise</div>
+    </div>
+    <div class="presenter__sunset">
+      <div class="value">{{ currentWeather.sys.sunset * 1000 | date: "HH:mm" }}</div>
+      <div class="name">Sunset</div>
+    </div>
+  </div>
+</div>
