@@ -13,4 +13,41 @@
   .weather__container {
     padding: 0 16px;
   }
+  .weather__current {
+    display: flex;
+    flex-direction: column;
+  }
+  .current__container {
+    height: 100%;
+    justify-content: space-evenly;
+    .value,
+    .name,
+    .icon {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .icon {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+    .current__row-first {
+      .value {
+        font-size: 3rem;
+      }
+    }
+    .current__row-second {
+      .value {
+        font-size: 1.8rem;
+      }
+    }
+    .current__row-third {
+      .value {
+        font-size: 1.1rem;
+      }
+    }
+  }
 }
