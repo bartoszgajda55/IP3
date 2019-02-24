@@ -1,4 +1,4 @@
-.presenter__container {
+.weather-presenter__container {
   height: 100%;
   justify-content: space-evenly;
   .value,
@@ -15,17 +15,17 @@
       height: 64px;
     }
   }
-  .presenter__row-first {
+  .weather-presenter__row-first {
     .value {
       font-size: 3rem;
     }
   }
-  .presenter__row-second {
+  .weather-presenter__row-second {
     .value {
       font-size: 1.8rem;
     }
   }
-  .presenter__row-third {
+  .weather-presenter__row-third {
     .value {
       font-size: 1.1rem;
     }
