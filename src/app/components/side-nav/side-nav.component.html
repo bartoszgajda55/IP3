@@ -6,34 +6,15 @@
     <h1 class="side-nav__header-title">{{ this.title }}</h1>
   </mat-toolbar>
 
-  <mat-sidenav-container
-    class="side-nav__container"
-    [class.container--extra-margin]="mobileQuery.matches"
-  >
-    <mat-sidenav
-      #snav
-      [mode]="over"
-      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56"
-    >
+  <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
+    <mat-sidenav #snav [mode]="over" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a
-          *ngFor="let link of navLinks"
-          mat-list-item
-          routerLink="{{ link.href }}"
-          (click)="snav.toggle()"
-          >{{ link.name }}</a
-        >
+        <a *ngFor="let link of navLinks" mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div
-        fxFlex="auto"
-        fxFlex.gt-xs="600px"
-        fxFlex.gt-sm="960px"
-        fxFlex.gt-md="1280px"
-      >
+      <div fxFlex="100%" fxFlex.gt-xs="600px" fxFlex.gt-sm="960px" fxFlex.gt-md="1280px">
         <ng-content></ng-content>
       </div>
     </mat-sidenav-content>
