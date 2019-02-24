@@ -28,13 +28,13 @@
   <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="weather-presenter__row-third">
     <div *ngIf="currentWeather.rain">
       <div *ngIf="currentWeather.rain['1h'] || currentWeather.rain['3h']" class="weather-presenter__rain">
-        <div class="value">{{ currentWeather.rain["3h"] }}mm/h</div>
+        <div class="value">{{ currentWeather.rain["3h"] | number: "1.0-2" }} mm/h</div>
         <div class="name">Rain</div>
       </div>
     </div>
     <div *ngIf="currentWeather.snow">
       <div *ngIf="currentWeather.snow['1h'] || currentWeather.snow['3h']" class="weather-presenter__snow">
-        <div class="value">{{ currentWeather.snow["3h"] }}mm/h</div>
+        <div class="value">{{ currentWeather.snow["3h"] | number: "1.0-2" }} mm/h</div>
         <div class="name">Snow</div>
       </div>
     </div>
