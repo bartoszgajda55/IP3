@@ -38,8 +38,9 @@
             [currentWeather]="currentWeather"
           ></app-weather-presenter>
         </div>
-        <div class="weather__forecast" fxFlex="0 1 100%">
+        <div class="weather__forecast" fxFlex="0 1 100%" fxLayout="column">
           <h3 class="forecast__header">Five day forecast for {{ currentLocationName }}</h3>
+          <app-forecast-presenter fxFlex="1 1 auto" *ngIf="(forecastWeather$ | async) as forecast" [forecast]="forecast"></app-forecast-presenter>
         </div>
       </div>
     </mat-card-content>
