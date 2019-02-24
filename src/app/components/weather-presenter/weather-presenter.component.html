@@ -26,19 +26,23 @@
     </div>
   </div>
   <div fxLayoutAlign="space-evenly center" fxLayout="row wrap" class="weather-presenter__row-third">
-    <div *ngIf="currentWeather.rain" class="weather-presenter__rain">
-      <div class="value">{{ currentWeather.rain["1h"] }}mm/h</div>
-      <div class="name">Rain</div>
+    <div *ngIf="currentWeather.rain">
+      <div *ngIf="currentWeather.rain['1h'] || currentWeather.rain['3h']" class="weather-presenter__rain">
+        <div class="value">{{ currentWeather.rain["3h"] }}mm/h</div>
+        <div class="name">Rain</div>
+      </div>
     </div>
-    <div *ngIf="currentWeather.snow" class="weather-presenter__snow">
-      <div class="value">{{ currentWeather.snow["1h"] }}mm/h</div>
-      <div class="name">Snow</div>
+    <div *ngIf="currentWeather.snow">
+      <div *ngIf="currentWeather.snow['1h'] || currentWeather.snow['3h']" class="weather-presenter__snow">
+        <div class="value">{{ currentWeather.snow["3h"] }}mm/h</div>
+        <div class="name">Snow</div>
+      </div>
     </div>
-    <div class="weather-presenter__sunrise">
+    <div *ngIf="currentWeather.sys.sunrise" class="weather-presenter__sunrise">
       <div class="value">{{ currentWeather.sys.sunrise * 1000 | date: "HH:mm" }}</div>
       <div class="name">Sunrise</div>
     </div>
-    <div class="weather-presenter__sunset">
+    <div *ngIf="currentWeather.sys.sunset" class="weather-presenter__sunset">
       <div class="value">{{ currentWeather.sys.sunset * 1000 | date: "HH:mm" }}</div>
       <div class="name">Sunset</div>
     </div>
