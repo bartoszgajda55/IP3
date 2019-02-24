@@ -1,5 +1,5 @@
 /// <reference types="@types/googlemaps" />
-import { Component, ElementRef, NgZone, ViewChild, OnDestroy } from "@angular/core";
+import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
@@ -19,6 +19,7 @@ export class WeatherPageComponent {
   public zoom: number;
   public currentLocationName: string;
   public currentWeather$: Observable<CurrentWeather>;
+  public forecastWeather$: Observable<FiveDayWeatherForecast>;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -37,7 +38,7 @@ export class WeatherPageComponent {
     this.lng = -4.289058;
     this.searchControl = new FormControl();
     this.currentLocationName = "Glasgow, UK";
-    this.currentWeather$ = this.fetchCurrentWeatherByLocation(this.lat, this.lng);
+    this.updateCurrentWeatherAndForecast(this.lat, this.lng);
   }
 
   private setDefaultPosition(): void {
@@ -70,10 +71,19 @@ export class WeatherPageComponent {
     this.lat = place.geometry.location.lat();
     this.lng = place.geometry.location.lng();
     this.currentLocationName = place.formatted_address;
-    this.currentWeather$ = this.fetchCurrentWeatherByLocation(this.lat, this.lng);
+    this.updateCurrentWeatherAndForecast(this.lat, this.lng);
+  }
+
+  private updateCurrentWeatherAndForecast(lat: number, lng: number): void {
+    this.currentWeather$ = this.fetchCurrentWeatherByLocation(lat, lng);
+    this.forecastWeather$ = this.fetchFiveDayForecastByLocation(lat, lng);
   }
 
   private fetchCurrentWeatherByLocation(lat: number, lng: number): Observable<CurrentWeather> {
     return this.weatherService.getCurrentWeatherByCoordinates(lat, lng);
+  }
+
+  private fetchFiveDayForecastByLocation(lat: number, lng: number): Observable<FiveDayWeatherForecast> {
+    return this.weatherService.getFiveDayWeatherForecastByCoordinates(lat, lng);
   }
 }
