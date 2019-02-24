@@ -13,7 +13,7 @@ export class OpenWeatherService {
   params: HttpParams;
   constructor(private http: HttpClient) {
     this.params = new HttpParams().set("APPID", environment.openWeatherKey);
-    this.apiUri = "http://api.openweathermap.org/data/2.5";
+    this.apiUri = "https://api.openweathermap.org/data/2.5";
   }
 
   public getCurrentWeatherByCoordinates(lat: number, lng: number): Observable<CurrentWeather> {
