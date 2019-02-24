@@ -18,9 +18,10 @@ import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
+import { ForecastPresenterComponent } from './components/forecast-presenter/forecast-presenter.component';
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
