@@ -11,7 +11,8 @@
       <div class="weather__container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
         <div class="weather__map" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h3 class="weather__header">Choose Location</h3>
-          <div class="weather__form">
+          <div class="weather__form-place">
+            <h4>By Place Name</h4>
             <mat-form-field>
               <input
                 matInput
@@ -26,6 +27,36 @@
               />
             </mat-form-field>
           </div>
+          <form class="weather__form-lat-lng" (ngSubmit)="searchByLatAndLng(heroForm)" #heroForm="ngForm">
+            <h4>By Latitude and Longitude</h4>
+            <div fxLayout="column">
+              <mat-form-field>
+                <input
+                  name="lat"
+                  ngModel
+                  matInput
+                  placeholder="Type in Latitude"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="off"
+                  type="number"
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  name="lng"
+                  ngModel
+                  matInput
+                  placeholder="Type in Longitude"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="off"
+                  type="number"
+                />
+              </mat-form-field>
+            </div>
+            <button type="submit" mat-raised-button color="primary">Search</button>
+          </form>
           <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
           </agm-map>

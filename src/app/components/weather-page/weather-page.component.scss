@@ -3,12 +3,19 @@
   agm-map {
     height: 400px;
   }
-  .weather__form {
+  .weather__form-place {
     display: flex;
     flex-direction: column;
+    padding: 20px 0 10px 0;
+    h4 {
+      margin: 0;
+    }
     & > * {
       width: 100%;
     }
+  }
+  .weather__form-lat-lng {
+    padding: 10px 0 40px 0;
   }
   .weather__container {
     padding: 0 16px;
