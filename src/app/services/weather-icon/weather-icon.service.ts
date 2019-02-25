@@ -71,6 +71,6 @@ export class WeatherIconService {
   }
 
   public getIconPathByWeatherCode(code: number): string {
-    return `/assets/weather-icons/icons8-${this.weatherIcon.get(code)}-48.png`;
+    return `https://s3.eu-west-2.amazonaws.com/ip3-icons-cdn/icons8-${this.weatherIcon.get(code)}-48.png`;
   }
 }
