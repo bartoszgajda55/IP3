@@ -1,6 +1,6 @@
 /// <reference types="@types/googlemaps" />
 import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormControl, NgForm } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
 import { CurrentWeather } from "src/app/interfaces/current-weather";
@@ -28,8 +28,15 @@ export class WeatherPageComponent {
 
   ngOnInit() {
     this.initializeFields();
-    this.setDefaultPosition();
+    this.getUserLocation();
     this.attachListenerToSearchBox();
+  }
+
+  public searchByLatAndLng(form: NgForm): void {
+    this.lat = form.value.lat;
+    this.lng = form.value.lng;
+    this.setAddressByLatAndLng(this.lat, this.lng);
+    this.updateCurrentWeatherAndForecast(this.lat, this.lng);
   }
 
   private initializeFields(): void {
@@ -41,13 +48,26 @@ export class WeatherPageComponent {
     this.updateCurrentWeatherAndForecast(this.lat, this.lng);
   }
 
-  private setDefaultPosition(): void {
+  private getUserLocation(): void {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
       });
     }
+  }
+
+  private setAddressByLatAndLng(lat: number, lng: number): void {
+    this.mapsAPILoader.load().then(() => {
+      let geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ location: { lat: lat, lng: lng } }, (result, status) => {
+        if ((status as unknown) == "OK" && result[0]) {
+          this.currentLocationName = result[0].formatted_address;
+        } else {
+          this.currentLocationName = "Not Available";
+        }
+      });
+    });
   }
 
   private attachListenerToSearchBox(): void {
