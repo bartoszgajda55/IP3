@@ -9,7 +9,7 @@
     </mat-card-header>
     <mat-card-content>
       <div class="weather__container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
-        <div class="weather__map" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+        <div class="weather__location" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h3 class="weather__header">Choose Location</h3>
           <div class="weather__form-place">
             <h4>By Place Name</h4>
@@ -57,9 +57,6 @@
             </div>
             <button type="submit" mat-raised-button color="primary">Search</button>
           </form>
-          <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          </agm-map>
         </div>
         <div class="weather__current" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h3 class="current__header">Current Weather in {{ currentLocationName }}</h3>
@@ -68,6 +65,11 @@
             *ngIf="(currentWeather$ | async) as currentWeather"
             [currentWeather]="currentWeather"
           ></app-weather-presenter>
+        </div>
+        <div class="weather__map" fxFlex="0 1 100%">
+          <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
         </div>
         <div class="weather__forecast" fxFlex="0 1 100%" fxLayout="column">
           <h3 class="forecast__header">Five day forecast for {{ currentLocationName }}</h3>
