@@ -19,9 +19,10 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from './components/forecast-presenter/forecast-presenter.component';
+import { NoCommaPipe } from './pipes/no-comma.pipe';
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
