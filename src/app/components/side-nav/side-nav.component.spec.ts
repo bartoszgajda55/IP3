@@ -25,9 +25,6 @@ describe("SideNavComponent", () => {
   it("should have header title as specified in component", () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    const app = fixture.debugElement.componentInstance;
-    expect(
-      compiled.querySelector(".side-nav__header-title").textContent
-    ).toEqual(app.title);
+    expect(compiled.querySelector(".side-nav__header-title").textContent).toEqual(component.title);
   });
 });
