@@ -17,17 +17,37 @@
   }
   .weather-presenter__row-first {
     .value {
-      font-size: 3rem;
+      font-size: 2.2rem;
     }
   }
   .weather-presenter__row-second {
     .value {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
   }
   .weather-presenter__row-third {
     .value {
-      font-size: 1.1rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .weather-presenter__container {
+    .weather-presenter__row-first {
+      .value {
+        font-size: 3rem;
+      }
+    }
+    .weather-presenter__row-second {
+      .value {
+        font-size: 1.8rem;
+      }
+    }
+    .weather-presenter__row-third {
+      .value {
+        font-size: 1.1rem;
+      }
     }
   }
 }
