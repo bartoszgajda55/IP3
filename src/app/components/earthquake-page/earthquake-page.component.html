@@ -1,3 +1,10 @@
-<p>
-  earthquake-page works!
-</p>
+<div class="earthquake">
+  <mat-card>
+    <mat-card-title>Earthquake Map</mat-card-title>
+    <mat-card-content>
+      <agm-map [latitude]="50" [longitude]="18" [scrollwheel]="false" [zoom]="12">
+        <agm-marker [latitude]="50" [longitude]="18"></agm-marker>
+      </agm-map>
+    </mat-card-content>
+  </mat-card>
+</div>
