@@ -17,7 +17,7 @@
       <div class="name">Clouds</div>
     </div>
     <div class="weather-presenter__presure">
-      <div class="value">{{ currentWeather.main.pressure }} hPa</div>
+      <div class="value">{{ currentWeather.main.pressure | number: "1.0-0" | noComma }} hPa</div>
       <div class="name">Pressure</div>
     </div>
     <div class="weather-presenter__humidity">
