@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { MaterialModule } from "./modules/material/material.module";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthorsPageComponent } from './components/authors-page/authors-page.component';
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, AuthorsPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
