@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EarthquakePageComponent } from './earthquake-page.component';
+import {AppModule} from '../../app.module';
 
 describe('EarthquakePageComponent', () => {
   let component: EarthquakePageComponent;
@@ -8,7 +9,7 @@ describe('EarthquakePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EarthquakePageComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
   }));
