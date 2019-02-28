@@ -4,6 +4,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <img src="/assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo" />
+    <span class="side-nav__spacer"></span>
+    <div class="side-nav__menu-container">
+      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" class="side-nav__menu-item">{{ link.name }}</a>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
