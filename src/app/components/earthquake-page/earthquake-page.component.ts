@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {EarthquakeService} from '../../services/earthquake/earthquake.service';
+
+
+
 @Component({
   selector: 'app-earthquake-page',
   templateUrl: './earthquake-page.component.html',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EarthquakePageComponent implements OnInit {
 
-  constructor() { }
+  earthquakes: string[];
+
+  constructor(private earthquakeService: EarthquakeService) {
+
+  }
 
   ngOnInit() {
+    this.getEarthqaukes();
+
+  }
+
+  getEarthqaukes(){
+    this.earthquakeService.getEarthquakes().subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
 }
+
+

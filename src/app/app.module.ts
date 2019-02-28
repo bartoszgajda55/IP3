@@ -21,6 +21,7 @@ import { WeatherPresenterComponent } from "./components/weather-presenter/weathe
 import { ForecastPresenterComponent } from './components/forecast-presenter/forecast-presenter.component';
 import { NoCommaPipe } from './pipes/no-comma.pipe';
 import { EarthquakePageComponent } from './components/earthquake-page/earthquake-page.component';
+import {EarthquakeService} from './services/earthquake/earthquake.service';
 
 @NgModule({
   declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, EarthquakePageComponent],
@@ -38,7 +39,7 @@ import { EarthquakePageComponent } from './components/earthquake-page/earthquake
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [OpenWeatherService, WeatherIconService],
+  providers: [OpenWeatherService, WeatherIconService, EarthquakeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

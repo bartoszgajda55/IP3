@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EarthquakePageComponent } from './earthquake-page.component';
+import {EarthquakePageComponent} from './earthquake-page.component';
 import {AppModule} from '../../app.module';
 
 describe('EarthquakePageComponent', () => {
