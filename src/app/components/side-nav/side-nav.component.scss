@@ -31,4 +31,11 @@
   .mat-sidenav-content {
     justify-content: center;
   }
+  .mat-toolbar-single-row {
+    height: 64px;
+    .side-nav__logo {
+      max-height: 36px;
+      margin-left: 30px;
+    }
+  }
 }
