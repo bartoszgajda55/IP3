@@ -52,12 +52,23 @@
         font-weight: 500;
         transition: color 0.2s;
         &:hover {
-          color: $color-secondary;
+          color: $color-grey-light;
         }
         &:not(:last-of-type) {
           margin-right: 15px;
         }
+        &.active {
+          color: $color-secondary;
+        }
       }
+    }
+  }
+  .footer {
+    background-color: $color-secondary;
+    width: 100%;
+    justify-content: center;
+    .footer__container {
+      padding: 20px;
     }
   }
 }

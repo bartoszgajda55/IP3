@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/theming";
 
-$color-primary: rgb(249, 243, 58); // #ffea00
-$color-secondary: rgb(36, 225, 222); // #1de9b6
+$color-primary: rgb(255, 234, 0); // #ffea00
+$color-secondary: rgb(0, 229, 255); // #00e5ff
+$color-grey-light: rgb(200, 200, 200);
 
 $custom-typography: mat-typography-config(
   $font-family: "Lato, monospace"
@@ -12,7 +13,7 @@ $custom-typography: mat-typography-config(
 @include mat-core();
 
 $weather-app-primary: mat-palette($mat-yellow, A400, A200, A700);
-$weather-app-seccondary: mat-palette($mat-teal, A400, A200, A700);
+$weather-app-seccondary: mat-palette($mat-cyan, A400, A200, A700);
 $weather-app-theme: mat-light-theme($weather-app-primary, $weather-app-seccondary);
 
 @include angular-material-theme($weather-app-theme);

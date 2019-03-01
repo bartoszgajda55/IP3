@@ -6,7 +6,7 @@
     <img src="/assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo" />
     <span class="side-nav__spacer"></span>
     <div class="side-nav__menu-container">
-      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" class="side-nav__menu-item">{{ link.name }}</a>
+      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</a>
     </div>
   </mat-toolbar>
 
@@ -17,10 +17,15 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content>
+    <mat-sidenav-content fxLayout="row wrap">
       <div fxFlex="100%" fxFlex.gt-xs="600px" fxFlex.gt-sm="960px" fxFlex.gt-md="1280px">
         <ng-content></ng-content>
       </div>
+      <footer class="footer">
+        <div class="footer__container" fxFlex="100%" fxFlex.gt-xs="600px" fxFlex.gt-sm="960px" fxFlex.gt-md="1280px">
+          <div>Footer</div>
+        </div>
+      </footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
