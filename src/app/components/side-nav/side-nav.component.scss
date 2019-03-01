@@ -68,7 +68,30 @@
     width: 100%;
     justify-content: center;
     .footer__container {
-      padding: 20px;
+      padding: 40px 20px;
+      justify-content: space-between;
+    }
+    .footer__logo {
+      max-width: 140px;
+    }
+    .footer__menu-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .footer__menu-item {
+        text-decoration: none;
+        color: #000;
+        transition: color 0.2s;
+        &:hover {
+          color: $color-grey-light;
+        }
+        &:not(:last-of-type) {
+          margin-bottom: 15px;
+        }
+        &.active {
+          color: $color-primary;
+        }
+      }
     }
   }
 }
