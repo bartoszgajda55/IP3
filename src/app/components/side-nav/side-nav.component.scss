@@ -1,3 +1,4 @@
+@import "../../../styles.scss";
 .side-nav {
   display: flex;
   flex-direction: column;
@@ -30,5 +31,52 @@
   }
   .mat-sidenav-content {
     justify-content: center;
+  }
+  .mat-toolbar-single-row {
+    height: 64px;
+    .side-nav__logo {
+      max-height: 36px;
+      margin-left: 20px;
+    }
+    .side-nav__toggler {
+      display: block;
+    }
+    .side-nav__spacer {
+      flex: 1 1 auto;
+    }
+    .side-nav__menu-container {
+      display: none;
+      .side-nav__menu-item {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        transition: color 0.2s;
+        &:hover {
+          color: $color-grey-light;
+        }
+        &:not(:last-of-type) {
+          margin-right: 15px;
+        }
+        &.active {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+  app-footer {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .side-nav {
+    .mat-toolbar-single-row {
+      .side-nav__toggler {
+        display: none;
+      }
+      .side-nav__menu-container {
+        display: block;
+      }
+    }
   }
 }
