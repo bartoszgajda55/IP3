@@ -1,5 +1,6 @@
 .page-not-found {
   padding: 20px;
+  min-height: calc(100vh - 354px);
   mat-card-footer {
     margin: 0;
   }
