@@ -3,7 +3,7 @@
     <button class="side-nav__toggler" mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <img src="/assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo" />
+    <img src="assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo" />
     <span class="side-nav__spacer"></span>
     <div class="side-nav__menu-container">
       <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</a>
