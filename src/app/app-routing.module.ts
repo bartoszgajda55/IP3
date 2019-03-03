@@ -4,11 +4,12 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 
 const routes: Routes = [
+  { path: "overview", component: PageNotFoundComponent },
   { path: "weather", component: WeatherPageComponent },
   { path: "earthquakes", component: PageNotFoundComponent },
   { path: "authors", component: PageNotFoundComponent },
   { path: "tutorial", component: PageNotFoundComponent },
-  { path: "", component: PageNotFoundComponent, pathMatch: "full" },
+  { path: "", redirectTo: "overview", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
 ];
 
