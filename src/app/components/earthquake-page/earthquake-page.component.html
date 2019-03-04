@@ -13,7 +13,7 @@
         </mat-form-field>
       </div>
 
-      <agm-map *ngIf="(selected ==='option1' && currentEarthquakes$ | async) as currentEarthquakes" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
+      <agm-map *ngIf="(selected ==='option1' && currentEarthquakes$ | async) as currentEarthquakes" [streetViewControl]="false" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
         <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
           <agm-marker   *ngFor="let earthquake of currentEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
             <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
