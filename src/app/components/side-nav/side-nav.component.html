@@ -1,9 +1,13 @@
 <div class="side-nav" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="side-nav__toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button class="side-nav__toggler" mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="side-nav__header-title">{{ this.title }}</h1>
+    <a routerLink="/"><img src="assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo"/></a>
+    <span class="side-nav__spacer"></span>
+    <div class="side-nav__menu-container">
+      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</a>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
@@ -13,10 +17,11 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content>
+    <mat-sidenav-content fxLayout="row wrap">
       <div fxFlex="100%" fxFlex.gt-xs="600px" fxFlex.gt-sm="960px" fxFlex.gt-md="1280px">
         <ng-content></ng-content>
       </div>
+      <app-footer [navLinks]="navLinks"></app-footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
