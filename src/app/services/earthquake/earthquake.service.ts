@@ -14,8 +14,14 @@ export class EarthquakeService {
   constructor(private http: HttpClient) {
   }
 
-  public getEarthquakes(): Observable<any> {
+  public getEarthquakesAllDay(): Observable<any> {
     return this.http.get('https://cors-anywhere.herokuapp.com/http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson')
+      .pipe(map(data => data));
+
+
+  }
+  public getEarthquakesLastHour(): Observable<any> {
+    return this.http.get('https://cors-anywhere.herokuapp.com/http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
       .pipe(map(data => data));
 
 
