@@ -1,6 +1,6 @@
 @import "../../../styles.scss";
 .footer {
-  background-color: $color-grey-light;
+  background-color: $color-primary;
   width: 100%;
   justify-content: center;
   .footer__container {
@@ -10,13 +10,16 @@
   .footer__logo {
     max-width: 140px;
   }
+  .footer__address {
+    color: #fff;
+  }
   .footer__menu-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     .footer__menu-item {
       text-decoration: none;
-      color: #000;
+      color: #fff;
       transition: color 0.2s;
       &:hover {
         color: $color-grey-light;
@@ -25,7 +28,7 @@
         margin-bottom: 15px;
       }
       &.active {
-        color: $color-primary;
+        color: $color-secondary;
       }
     }
   }

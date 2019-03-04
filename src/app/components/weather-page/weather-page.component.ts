@@ -5,7 +5,9 @@ import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
 import { CurrentWeather } from "src/app/interfaces/current-weather";
 import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
-import { Observable } from "rxjs";
+import { Observable, Subject, of } from "rxjs";
+import { catchError } from "rxjs/operators";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-weather",
@@ -20,11 +22,19 @@ export class WeatherPageComponent {
   public currentLocationName: string;
   public currentWeather$: Observable<CurrentWeather>;
   public forecastWeather$: Observable<FiveDayWeatherForecast>;
+  public currentWeatherLoadingError$: Subject<boolean> = new Subject<boolean>();
+  public fiveDayForecastLoadingError$: Subject<boolean> = new Subject<boolean>();
+  private SNACK_DURATION: number = 3000;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private weatherService: OpenWeatherService) {}
+  constructor(
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
+    private weatherService: OpenWeatherService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.initializeFields();
@@ -100,10 +110,28 @@ export class WeatherPageComponent {
   }
 
   private fetchCurrentWeatherByLocation(lat: number, lng: number): Observable<CurrentWeather> {
-    return this.weatherService.getCurrentWeatherByCoordinates(lat, lng);
+    return this.weatherService.getCurrentWeatherByCoordinates(lat, lng).pipe(
+      catchError(error => {
+        this.showSnackWithError("Error loading Current Weather");
+        this.currentWeatherLoadingError$.next(true);
+        return of() as Observable<CurrentWeather>;
+      })
+    );
   }
 
   private fetchFiveDayForecastByLocation(lat: number, lng: number): Observable<FiveDayWeatherForecast> {
-    return this.weatherService.getFiveDayWeatherForecastByCoordinates(lat, lng);
+    return this.weatherService.getFiveDayWeatherForecastByCoordinates(lat, lng).pipe(
+      catchError(error => {
+        this.showSnackWithError("Error loading Five Day Forecast");
+        this.fiveDayForecastLoadingError$.next(true);
+        return of() as Observable<FiveDayWeatherForecast>;
+      })
+    );
+  }
+
+  private showSnackWithError(message: string): void {
+    this.snackBar.open(message, "", {
+      duration: this.SNACK_DURATION
+    });
   }
 }

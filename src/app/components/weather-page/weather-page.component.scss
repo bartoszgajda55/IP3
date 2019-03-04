@@ -17,6 +17,9 @@
       }
       .weather__form-lat-lng {
         padding: 10px 0;
+        .form-lat-lng__submit {
+          margin-top: 10px;
+        }
       }
     }
     .weather__current {
@@ -32,6 +35,15 @@
     }
     .weather__forecast {
       padding: 10px 0;
+    }
+    .loading-or-error {
+      height: 100%;
+      .ng-star-inserted {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
     }
   }
 }
