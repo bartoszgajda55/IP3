@@ -2,13 +2,17 @@
   <mat-card>
     <mat-card-title>Earthquake Map</mat-card-title>
     <mat-card-content>
-      <agm-map [latitude]="50" [longitude]="18" [scrollwheel]="true" [zoom]="12">
-        <agm-marker [latitude]="50" [longitude]="18"></agm-marker>
-      </agm-map>
+        <agm-map *ngIf="(currentEarthquakes$ | async) as currentEarthquakes" [latitude]="50" [longitude]="18" [scrollwheel]="true" [zoom]="4">
+          <agm-marker-cluster>
+          <agm-marker *ngFor="let earthquake of currentEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']"></agm-marker>
+          </agm-marker-cluster>
+        </agm-map>
 
-      <mat-list>
-        <mat-list-item></mat-list-item>
+      <mat-list *ngFor="let earthquake of earthquakes ">
+        <h4 matLine>{{earthquake.properties.place | json}}</h4>
+        <p matLine class="demo-2"> {{ "Long: " + earthquake.geometry.coordinates[0] + " Lat: " + earthquake.geometry.coordinates[1] | json}} </p>
       </mat-list>
+
     </mat-card-content>
   </mat-card>
 </div>

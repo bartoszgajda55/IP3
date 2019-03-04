@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {EarthquakeService} from '../../services/earthquake/earthquake.service';
+import {Observable} from 'rxjs';
 
 
 
@@ -11,22 +12,41 @@ import {EarthquakeService} from '../../services/earthquake/earthquake.service';
 })
 export class EarthquakePageComponent implements OnInit {
 
-  earthquakes: string[];
+  public earthquakes = []
+  public coordinates = [];
+  public currentEarthquakes$: Observable<any>;
+
 
   constructor(private earthquakeService: EarthquakeService) {
 
   }
 
   ngOnInit() {
-    this.getEarthqaukes();
+    this.getEarthquakes();
+    this.getEarthquakesCoordinates();
+    this.currentEarthquakes$ = this.earthquakeService.getEarthquakes();
+  }
+
+  getEarthquakes() {
+    this.earthquakeService.getEarthquakes().subscribe(
+      (response) => {
+        console.log(response);
+        this.earthquakes = response.features;
+      },
+      (error) => console.log(error)
+    );
 
   }
 
-  getEarthqaukes(){
+  getEarthquakesCoordinates() {
     this.earthquakeService.getEarthquakes().subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response);
+        this.coordinates = response.features.geometry;
+      },
       (error) => console.log(error)
     );
+
   }
 
 }
