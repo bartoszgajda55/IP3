@@ -23,6 +23,7 @@ import { NoCommaPipe } from './pipes/no-comma.pipe';
 import { EarthquakePageComponent } from './components/earthquake-page/earthquake-page.component';
 import {EarthquakeService} from './services/earthquake/earthquake.service';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
+import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 
 @NgModule({
   declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, EarthquakePageComponent],
@@ -39,7 +40,8 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AgmJsMarkerClustererModule
+    AgmJsMarkerClustererModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [OpenWeatherService, WeatherIconService, EarthquakeService],
   bootstrap: [AppComponent]

@@ -27,23 +27,6 @@ export class EarthquakePageComponent implements OnInit {
     this.currentEarthquakes$ = this.earthquakeService.getEarthquakesAllDay();
     this.LastHourEarthquakes$ = this.earthquakeService.getEarthquakesLastHour();
   }
-
-
-
-
-  getEarthquakes() {
-    this.earthquakeService.getEarthquakesAllDay().subscribe(
-      (response) => {
-        console.log(response);
-        this.earthquakes = response.features;
-      },
-      (error) => console.log(error)
-    );
-
-  }
-
-
-
 }
 
 
