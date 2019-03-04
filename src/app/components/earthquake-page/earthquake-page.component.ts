@@ -12,9 +12,10 @@ import {Observable} from 'rxjs';
 })
 export class EarthquakePageComponent implements OnInit {
 
+  selected = 'option1';
   public earthquakes = []
-  public coordinates = [];
   public currentEarthquakes$: Observable<any>;
+  public LastHourEarthquakes$: Observable<any>;
 
 
   constructor(private earthquakeService: EarthquakeService) {
@@ -22,13 +23,16 @@ export class EarthquakePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEarthquakes();
-    this.getEarthquakesCoordinates();
-    this.currentEarthquakes$ = this.earthquakeService.getEarthquakes();
+
+    this.currentEarthquakes$ = this.earthquakeService.getEarthquakesAllDay();
+    this.LastHourEarthquakes$ = this.earthquakeService.getEarthquakesLastHour();
   }
 
+
+
+
   getEarthquakes() {
-    this.earthquakeService.getEarthquakes().subscribe(
+    this.earthquakeService.getEarthquakesAllDay().subscribe(
       (response) => {
         console.log(response);
         this.earthquakes = response.features;
@@ -38,16 +42,7 @@ export class EarthquakePageComponent implements OnInit {
 
   }
 
-  getEarthquakesCoordinates() {
-    this.earthquakeService.getEarthquakes().subscribe(
-      (response) => {
-        console.log(response);
-        this.coordinates = response.features.geometry;
-      },
-      (error) => console.log(error)
-    );
 
-  }
 
 }
 
