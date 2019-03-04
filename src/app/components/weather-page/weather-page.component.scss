@@ -17,6 +17,9 @@
       }
       .weather__form-lat-lng {
         padding: 10px 0;
+        .form-lat-lng__submit {
+          margin-top: 10px;
+        }
       }
     }
     .weather__current {

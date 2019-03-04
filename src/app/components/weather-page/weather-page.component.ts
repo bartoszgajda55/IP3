@@ -33,6 +33,7 @@ export class WeatherPageComponent {
   }
 
   public searchByLatAndLng(form: NgForm): void {
+    console.log(form);
     this.lat = form.value.lat;
     this.lng = form.value.lng;
     this.setAddressByLatAndLng(this.lat, this.lng);

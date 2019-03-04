@@ -27,7 +27,7 @@
               />
             </mat-form-field>
           </div>
-          <form class="weather__form-lat-lng" (ngSubmit)="searchByLatAndLng(heroForm)" #heroForm="ngForm">
+          <form class="weather__form-lat-lng" (ngSubmit)="searchByLatAndLng(latLngForm)" #latLngForm="ngForm">
             <h4>By Latitude and Longitude</h4>
             <div fxLayout="column">
               <mat-form-field>
@@ -40,7 +40,9 @@
                   autocapitalize="off"
                   spellcheck="off"
                   type="number"
+                  required
                 />
+                <mat-error *ngIf="latLngForm.form.controls.lat?.invalid"> Latitude is <strong>required</strong> </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <input
@@ -52,10 +54,12 @@
                   autocapitalize="off"
                   spellcheck="off"
                   type="number"
+                  required
                 />
+                <mat-error *ngIf="latLngForm.form.controls.lng?.invalid"> Longitude is <strong>required</strong> </mat-error>
               </mat-form-field>
             </div>
-            <button type="submit" mat-raised-button color="accent">Search</button>
+            <button class="form-lat-lng__submit" type="submit" [disabled]="!latLngForm.form.valid" mat-raised-button color="accent">Search</button>
           </form>
         </div>
         <div class="weather__current" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
