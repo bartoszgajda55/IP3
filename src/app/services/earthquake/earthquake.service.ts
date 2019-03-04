@@ -15,7 +15,7 @@ export class EarthquakeService {
   }
 
   public getEarthquakes(): Observable<any> {
-    return this.http.get('https://cors-anywhere.herokuapp.com/http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson')
+    return this.http.get('https://cors-anywhere.herokuapp.com/http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson')
       .pipe(map(data => data));
 
 
