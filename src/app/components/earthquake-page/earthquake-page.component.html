@@ -27,7 +27,15 @@
 
       <agm-map *ngIf="(selected ==='option2' && LastHourEarthquakes$ | async) as hourEarthquakes" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
         <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-          <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']"></agm-marker>
+          <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
+            <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
+              <ng-template>
+                {{ earthquake.properties.place | json }}
+              </ng-template>
+            </agm-snazzy-info-window>
+
+          </agm-marker>
+
         </agm-marker-cluster>
       </agm-map>
 
