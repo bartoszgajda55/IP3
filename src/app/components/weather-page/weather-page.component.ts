@@ -5,7 +5,8 @@ import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
 import { CurrentWeather } from "src/app/interfaces/current-weather";
 import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
-import { Observable } from "rxjs";
+import { Observable, Subject, of } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 @Component({
   selector: "app-weather",
@@ -20,6 +21,8 @@ export class WeatherPageComponent {
   public currentLocationName: string;
   public currentWeather$: Observable<CurrentWeather>;
   public forecastWeather$: Observable<FiveDayWeatherForecast>;
+  public currentWeatherLoadingError$: Subject<boolean> = new Subject<boolean>();
+  public fiveDayForecastLoadingError$: Subject<boolean> = new Subject<boolean>();
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -33,7 +36,6 @@ export class WeatherPageComponent {
   }
 
   public searchByLatAndLng(form: NgForm): void {
-    console.log(form);
     this.lat = form.value.lat;
     this.lng = form.value.lng;
     this.setAddressByLatAndLng(this.lat, this.lng);
@@ -101,10 +103,22 @@ export class WeatherPageComponent {
   }
 
   private fetchCurrentWeatherByLocation(lat: number, lng: number): Observable<CurrentWeather> {
-    return this.weatherService.getCurrentWeatherByCoordinates(lat, lng);
+    return this.weatherService.getCurrentWeatherByCoordinates(lat, lng).pipe(
+      catchError(error => {
+        console.error("error loading current weather", error);
+        this.currentWeatherLoadingError$.next(true);
+        return of() as Observable<CurrentWeather>;
+      })
+    );
   }
 
   private fetchFiveDayForecastByLocation(lat: number, lng: number): Observable<FiveDayWeatherForecast> {
-    return this.weatherService.getFiveDayWeatherForecastByCoordinates(lat, lng);
+    return this.weatherService.getFiveDayWeatherForecastByCoordinates(lat, lng).pipe(
+      catchError(error => {
+        console.error("error loading five day forecast", error);
+        this.fiveDayForecastLoadingError$.next(true);
+        return of() as Observable<FiveDayWeatherForecast>;
+      })
+    );
   }
 }

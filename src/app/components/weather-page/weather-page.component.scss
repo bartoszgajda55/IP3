@@ -36,5 +36,14 @@
     .weather__forecast {
       padding: 10px 0;
     }
+    .loading-or-error {
+      height: 100%;
+      .ng-star-inserted {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+    }
   }
 }
