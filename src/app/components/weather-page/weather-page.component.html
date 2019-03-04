@@ -27,7 +27,7 @@
               />
             </mat-form-field>
           </div>
-          <form class="weather__form-lat-lng" (ngSubmit)="searchByLatAndLng(heroForm)" #heroForm="ngForm">
+          <form class="weather__form-lat-lng" (ngSubmit)="searchByLatAndLng(latLngForm)" #latLngForm="ngForm">
             <h4>By Latitude and Longitude</h4>
             <div fxLayout="column">
               <mat-form-field>
@@ -40,7 +40,9 @@
                   autocapitalize="off"
                   spellcheck="off"
                   type="number"
+                  required
                 />
+                <mat-error *ngIf="latLngForm.form.controls.lat?.invalid"> Latitude is <strong>required</strong> </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <input
@@ -52,19 +54,31 @@
                   autocapitalize="off"
                   spellcheck="off"
                   type="number"
+                  required
                 />
+                <mat-error *ngIf="latLngForm.form.controls.lng?.invalid"> Longitude is <strong>required</strong> </mat-error>
               </mat-form-field>
             </div>
-            <button type="submit" mat-raised-button color="accent">Search</button>
+            <button class="form-lat-lng__submit" type="submit" [disabled]="!latLngForm.form.valid" mat-raised-button color="accent">Search</button>
           </form>
         </div>
         <div class="weather__current" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h3 class="current__header">Current Weather in {{ currentLocationName }}</h3>
           <app-weather-presenter
             fxFlex="1 1 auto"
-            *ngIf="(currentWeather$ | async) as currentWeather"
+            *ngIf="(currentWeather$ | async) as currentWeather; else currentWeatherLoadingOrError"
             [currentWeather]="currentWeather"
           ></app-weather-presenter>
+          <ng-template #currentWeatherLoadingOrError>
+            <div class="loading-or-error">
+              <div *ngIf="(currentWeatherLoadingError$ | async); else currentWeatherLoading">
+                Couldn't fetch current weather. Plese try with different coordinates.
+              </div>
+              <ng-template #currentWeatherLoading>
+                <mat-spinner></mat-spinner>
+              </ng-template>
+            </div>
+          </ng-template>
         </div>
         <div class="weather__map" fxFlex="0 1 100%">
           <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
@@ -73,7 +87,21 @@
         </div>
         <div class="weather__forecast" fxFlex="0 1 100%" fxLayout="column">
           <h3 class="forecast__header">Five day forecast for {{ currentLocationName }}</h3>
-          <app-forecast-presenter fxFlex="1 1 auto" *ngIf="(forecastWeather$ | async) as forecast" [forecast]="forecast"></app-forecast-presenter>
+          <app-forecast-presenter
+            fxFlex="1 1 auto"
+            *ngIf="(forecastWeather$ | async) as forecast; else fiveDayForecastLoadingOrError"
+            [forecast]="forecast"
+          ></app-forecast-presenter>
+          <ng-template #fiveDayForecastLoadingOrError>
+            <div class="loading-or-error">
+              <div *ngIf="(fiveDayForecastLoadingError$ | async); else fiveDayForecastLoading">
+                Couldn't fetch five day forecast. Plese try with different coordinates.
+              </div>
+              <ng-template #fiveDayForecastLoading>
+                <mat-spinner></mat-spinner>
+              </ng-template>
+            </div>
+          </ng-template>
         </div>
       </div>
     </mat-card-content>
