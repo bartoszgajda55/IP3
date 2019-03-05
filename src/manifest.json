@@ -1,9 +1,10 @@
 {
-  "name": "IP3",
-  "short_name": "IP3",
+  "name": "Vetero - Your Weather App",
+  "short_name": "Vetero",
   "theme_color": "#006064",
-  "background_color": "#fafafa",
+  "background_color": "#c8c8c8",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [
