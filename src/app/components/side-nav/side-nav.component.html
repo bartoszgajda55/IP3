@@ -11,7 +11,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
-    <mat-sidenav #snav [mode]="over" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    <mat-sidenav #snav mode="over" fixedInViewport="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
         <a *ngFor="let link of navLinks" mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
       </mat-nav-list>

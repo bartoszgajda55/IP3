@@ -5,8 +5,6 @@ import { AgmCoreModule } from "@agm/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-
-import { environment } from "src/environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { MaterialModule } from "./modules/material/material.module";
 
@@ -18,12 +16,23 @@ import { SideNavComponent } from "./components/side-nav/side-nav.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
-import { ForecastPresenterComponent } from './components/forecast-presenter/forecast-presenter.component';
-import { NoCommaPipe } from './pipes/no-comma.pipe';
-import { FooterComponent } from './components/footer/footer.component';
+import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
+import { NoCommaPipe } from "./pipes/no-comma.pipe";
+import { FooterComponent } from "./components/footer/footer.component";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, FooterComponent],
+  declarations: [
+    AppComponent,
+    SideNavComponent,
+    PageNotFoundComponent,
+    WeatherPageComponent,
+    WeatherPresenterComponent,
+    ForecastPresenterComponent,
+    NoCommaPipe,
+    FooterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +45,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production })
   ],
   providers: [OpenWeatherService, WeatherIconService],
   bootstrap: [AppComponent]
