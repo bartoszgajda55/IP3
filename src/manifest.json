@@ -1,7 +1,7 @@
 {
   "name": "IP3",
   "short_name": "IP3",
-  "theme_color": "#1976d2",
+  "theme_color": "#006064",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
