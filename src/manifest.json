@@ -5,6 +5,7 @@
   "background_color": "#c8c8c8",
   "display": "standalone",
   "orientation": "portrait",
+  "prefer_related_applications": false,
   "scope": "/",
   "start_url": "/",
   "icons": [
