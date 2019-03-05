@@ -16,6 +16,7 @@ export class EarthquakePageComponent implements OnInit {
   public earthquakes = []
   public currentEarthquakes$: Observable<any>;
   public LastHourEarthquakes$: Observable<any>;
+  public AllMonthEarthquakes$: Observable<any>;
 
 
   constructor(private earthquakeService: EarthquakeService) {
@@ -26,6 +27,7 @@ export class EarthquakePageComponent implements OnInit {
 
     this.currentEarthquakes$ = this.earthquakeService.getEarthquakesAllDay();
     this.LastHourEarthquakes$ = this.earthquakeService.getEarthquakesLastHour();
+    this.AllMonthEarthquakes$ = this.earthquakeService.getEarthquakesallMonth();
   }
 }
 
