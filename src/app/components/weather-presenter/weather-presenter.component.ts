@@ -10,7 +10,7 @@ import { CurrentWeather } from "src/app/interfaces/current-weather";
 export class WeatherPresenterComponent implements OnInit {
   @Input() currentWeather: CurrentWeather;
 
-  constructor(private weatherIconService: WeatherIconService) {}
+  constructor(public weatherIconService: WeatherIconService) {}
 
   ngOnInit() {}
 }
