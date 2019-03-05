@@ -27,4 +27,11 @@ export class EarthquakeService {
 
   }
 
+  public getEarthquakesallMonth(): Observable<any> {
+    return this.http.get('https://cors-anywhere.herokuapp.com/http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson')
+      .pipe(map(data => data));
+
+
+  }
+
 }
