@@ -25,9 +25,10 @@ import {EarthquakeService} from './services/earthquake/earthquake.service';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import { FooterComponent } from './components/footer/footer.component';
+import { NoQuotemarkPipe } from './pipes/no-quotemark/no-quotemark.pipe';
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, EarthquakePageComponent, FooterComponent],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, EarthquakePageComponent, FooterComponent, NoQuotemarkPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

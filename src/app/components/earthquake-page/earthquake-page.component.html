@@ -19,7 +19,7 @@
           <agm-marker   *ngFor="let earthquake of currentEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
             <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
               <ng-template>
-                {{ earthquake.properties.place | json }}
+                {{ earthquake.properties.place | json | noQuotemark }}
               </ng-template>
             </agm-snazzy-info-window>
           </agm-marker>
@@ -31,7 +31,7 @@
           <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
             <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
               <ng-template>
-                {{ earthquake.properties.place | json }}
+                {{ earthquake.properties.place | json | noQuotemark }}
               </ng-template>
             </agm-snazzy-info-window>
 
@@ -44,7 +44,7 @@
           <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
             <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
               <ng-template>
-                {{ earthquake.properties.place | json }}
+                {{ earthquake.properties.place | json | noQuotemark }}
               </ng-template>
             </agm-snazzy-info-window>
 
