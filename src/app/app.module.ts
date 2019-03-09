@@ -21,6 +21,7 @@ import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
+import { VisualizationPageComponent } from './components/visualization-page/visualization-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { environment } from "../environments/environment";
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
-    FooterComponent
+    FooterComponent,
+    VisualizationPageComponent
   ],
   imports: [
     BrowserModule,
