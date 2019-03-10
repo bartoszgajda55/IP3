@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {EarthquakeService} from '../../services/earthquake/earthquake.service';
 import {Observable} from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 
 
@@ -24,7 +25,6 @@ export class EarthquakePageComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.currentEarthquakes$ = this.earthquakeService.getEarthquakesAllDay();
     this.LastHourEarthquakes$ = this.earthquakeService.getEarthquakesLastHour();
     this.AllMonthEarthquakes$ = this.earthquakeService.getEarthquakesallMonth();
