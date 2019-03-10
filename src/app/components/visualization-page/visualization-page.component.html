@@ -8,10 +8,7 @@
       <h4>Select Map Overlay</h4>
       <mat-form-field>
         <mat-select placeholder="Select Map Overlay" (selectionChange)="handleUserMapLayerSelection($event)" required>
-          <mat-option value="TA2">Air temperature at a height of 2 meters</mat-option>
-          <mat-option value="APM">Atmospheric pressure on mean sea level</mat-option>
-          <mat-option value="CL">Cloudiness</mat-option>
-          <mat-option value="SD0">Depth of snow</mat-option>
+          <mat-option *ngFor="let layer of availableMapLayers" [value]="layer.value">{{ layer.name }}</mat-option>
         </mat-select>
       </mat-form-field>
       <agm-map (mapReady)="onMapReady($event)" [latitude]="50" [longitude]="0" [scrollwheel]="false" [zoom]="5" [styles]="mapStyles"> </agm-map>

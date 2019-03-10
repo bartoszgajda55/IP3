@@ -1,9 +1,10 @@
 /// <reference types="@types/googlemaps" />
 import { Component, OnInit } from "@angular/core";
-import styles from "../../data/map-style";
-import {} from "googlemaps";
 import { FormControl, Validators } from "@angular/forms";
 import { MatSelectChange } from "@angular/material";
+import styles from "../../data/map-style";
+import layers from "../../data/map-layers";
+import {} from "googlemaps";
 
 @Component({
   selector: "app-visualization-page",
@@ -13,6 +14,7 @@ import { MatSelectChange } from "@angular/material";
 export class VisualizationPageComponent {
   private map: any;
   private defaultLayerName: string = "TA2";
+  public availableMapLayers: any[] = layers;
   public mapStyles = styles;
 
   public onMapReady(map): void {
