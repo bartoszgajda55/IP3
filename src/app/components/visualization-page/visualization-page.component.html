@@ -11,6 +11,7 @@
           <mat-option *ngFor="let layer of availableMapLayers" [value]="layer.value">{{ layer.name }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <div>Layer Displayed: {{ layerName }}</div>
       <agm-map (mapReady)="onMapReady($event)" [latitude]="50" [longitude]="0" [scrollwheel]="false" [zoom]="5" [styles]="mapStyles"> </agm-map>
     </mat-card-content>
   </mat-card>
