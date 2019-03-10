@@ -4,15 +4,33 @@
     <mat-card-subtitle
       >This page contains extra visualizations, using the data sources and techniques we have identified as innovative</mat-card-subtitle
     >
-    <mat-card-content>
-      <h4>Select Map Overlay</h4>
-      <mat-form-field>
-        <mat-select placeholder="Select Map Overlay" (selectionChange)="handleUserMapLayerSelection($event)" required>
-          <mat-option *ngFor="let layer of availableMapLayers" [value]="layer.value">{{ layer.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div>Layer Displayed: {{ layerName }}</div>
-      <agm-map (mapReady)="onMapReady($event)" [latitude]="50" [longitude]="0" [scrollwheel]="false" [zoom]="5" [styles]="mapStyles"> </agm-map>
+    <mat-card-content fxLayout="column">
+      <div fxLayout="row wrap">
+        <div class="visualization__form" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Select Map Overlay</h4>
+          <mat-form-field>
+            <mat-select placeholder="Select Map Overlay" (selectionChange)="handleUserMapLayerSelection($event)" required>
+              <mat-option *ngFor="let layer of availableMapLayers" [value]="layer.value">{{ layer.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="visualization__description" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Layer Displayed</h4>
+          <p>{{ layerName }}</p>
+        </div>
+      </div>
+      <div fxFlex="0 1 100%">
+        <agm-map
+          (mapReady)="onMapReady($event)"
+          [latitude]="50"
+          [longitude]="0"
+          [scrollwheel]="false"
+          [zoom]="5"
+          [styles]="mapStyles"
+          [streetViewControl]="false"
+        >
+        </agm-map>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

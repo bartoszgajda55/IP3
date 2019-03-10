@@ -3,4 +3,13 @@
   agm-map {
     height: calc(100vh - 300px);
   }
+  mat-form-field {
+    width: 100%;
+  }
+  .visualization__form {
+    padding: 0 15px;
+  }
+  .visualization__description {
+    padding: 0 15px;
+  }
 }
