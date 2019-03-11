@@ -20,9 +20,14 @@
               literals: true, false, and null. An array consists of elements where each element is a value 
               as described above.</p>
               <p>GeoJSON always consists of a single object. This object represents a geometry, feature, or collection of features. </p>
-            <h3>Geometry Object</h3>
+              <p>The GeoJSON object must have a member with the name "type". This member’s value is a string that determines the type of the GeoJSON object. </p>
+              <h3>Geometry Object</h3>
             <p>A geometry is a GeoJSON object where the type member’s value is one of the following strings: "Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon", or "GeometryCollection". </p>
+            
             <p> </p>
+
+
+
         </mat-card-content>
   </mat-card>
 </div>
