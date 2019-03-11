@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { GeoJSONTutorialComponent } from './geo-json-tutorial.component';
+import { GeoJSONTutorialComponent } from "./geo-json-tutorial.component";
+import { AppModule } from "src/app/app.module";
 
-describe('GeoJSONTutorialComponent', () => {
+describe("GeoJSONTutorialComponent", () => {
   let component: GeoJSONTutorialComponent;
   let fixture: ComponentFixture<GeoJSONTutorialComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeoJSONTutorialComponent ]
-    })
-    .compileComponents();
+      imports: [AppModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('GeoJSONTutorialComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
