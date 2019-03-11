@@ -20,9 +20,10 @@ import { WeatherPageComponent } from "./components/weather-page/weather-page.com
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from './components/forecast-presenter/forecast-presenter.component';
 import { NoCommaPipe } from './pipes/no-comma.pipe';
+import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe],
+  declarations: [AppComponent, SideNavComponent, PageNotFoundComponent, WeatherPageComponent, WeatherPresenterComponent, ForecastPresenterComponent, NoCommaPipe, GeoJSONTutorialComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
