@@ -19,11 +19,11 @@ import { WeatherPresenterComponent } from "./components/weather-presenter/weathe
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { FooterComponent } from "./components/footer/footer.component";
+import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
 
 @NgModule({
   declarations: [
