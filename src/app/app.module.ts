@@ -19,6 +19,7 @@ import { WeatherPresenterComponent } from "./components/weather-presenter/weathe
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { FooterComponent } from "./components/footer/footer.component";
+import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 
@@ -31,7 +32,8 @@ import { environment } from "../environments/environment";
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
-    FooterComponent
+    FooterComponent,
+    GeoJSONTutorialComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,9 @@ import { environment } from "../environments/environment";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production })
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    })
   ],
   providers: [OpenWeatherService, WeatherIconService],
   bootstrap: [AppComponent]
