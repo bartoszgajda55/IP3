@@ -1,10 +1,5 @@
 import { MediaMatcher } from "@angular/cdk/layout";
-import {
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  ViewEncapsulation
-} from "@angular/core";
+import { ChangeDetectorRef, Component, OnDestroy, ViewEncapsulation } from "@angular/core";
 import { NavigationLink } from "src/app/interfaces/navigation-link";
 
 @Component({

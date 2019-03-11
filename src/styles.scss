@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/theming";
+
+$color-primary: rgb(0, 96, 100); // #006064
+$color-secondary: rgb(128, 222, 234); // #80DEEA
+$color-grey-light: rgb(200, 200, 200);
+
+$custom-typography: mat-typography-config(
+  $font-family: "Lato, monospace"
+);
+@include mat-core($custom-typography);
+@include angular-material-typography($custom-typography);
+@include mat-core();
+
+$weather-app-primary: mat-palette($mat-cyan, 900);
+$weather-app-seccondary: mat-palette($mat-cyan, 200);
+$weather-app-theme: mat-light-theme($weather-app-primary, $weather-app-seccondary);
+
+@include angular-material-theme($weather-app-theme);
 
 html,
 body {
@@ -7,5 +24,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+* {
+  font-family: "Lato", "Helvetica Neue", sans-serif;
 }

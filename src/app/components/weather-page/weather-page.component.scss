@@ -1,0 +1,49 @@
+.weather {
+  padding: 20px;
+  .weather__container {
+    padding: 0 16px;
+    .weather__location {
+      padding: 10px 0;
+      .weather__form-place {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        h4 {
+          margin: 0;
+        }
+        & > * {
+          width: 100%;
+        }
+      }
+      .weather__form-lat-lng {
+        padding: 10px 0;
+        .form-lat-lng__submit {
+          margin-top: 10px;
+        }
+      }
+    }
+    .weather__current {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+    }
+    .weather__map {
+      padding: 10px 0;
+      agm-map {
+        height: 400px;
+      }
+    }
+    .weather__forecast {
+      padding: 10px 0;
+    }
+    .loading-or-error {
+      height: 100%;
+      .ng-star-inserted {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+    }
+  }
+}
