@@ -22,6 +22,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { JsTechniquesComponent } from './components/js-techniques/js-techniques.component';
+import { AuthorsPageComponent } from './components/authors-page/authors-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { JsTechniquesComponent } from './components/js-techniques/js-techniques.
     ForecastPresenterComponent,
     NoCommaPipe,
     FooterComponent,
-    JsTechniquesComponent
+    JsTechniquesComponent,
+    AuthorsPageComponent
   ],
   imports: [
     BrowserModule,
