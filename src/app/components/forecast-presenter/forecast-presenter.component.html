@@ -11,10 +11,10 @@
             [currentWeather]="forecast.value[Math.ceil((forecast.value.length - 1) / 2)]"
           ></app-weather-presenter>
         </div>
-        <div class="forecast-presenter__charts" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+        <div class="forecast-presenter__chart" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <ngx-charts-line-chart
             [scheme]="colorScheme"
-            [results]="multi"
+            [results]="getLineChartDayByForecastDay(forecast.key)"
             gradient="true"
             xAxis="true"
             yAxis="true"

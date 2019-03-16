@@ -11,27 +11,9 @@ import { Forecast } from "src/app/interfaces/forecast";
 export class ForecastPresenterComponent implements OnChanges {
   @Input() forecast: FiveDayWeatherForecast;
   public transformedForecast: Map<string, Array<Forecast>>;
+  public lineChartData: Array<{ name: string; series: any[] }> = [{ name: "Temperature", series: [] }];
   public Math: Math = Math;
-  public colorScheme = { domain: ["#5AA454"] };
-  public multi: any[] = [
-    {
-      name: "Temperature",
-      series: [
-        {
-          name: "16",
-          value: 5
-        },
-        {
-          name: "17",
-          value: 8
-        },
-        {
-          name: "18",
-          value: 6
-        }
-      ]
-    }
-  ];
+  public colorScheme = { domain: ["#F9A825"] };
 
   ngOnChanges(changes: SimpleChanges) {
     this.mapForecastWithDay(this.forecast);
@@ -41,6 +23,14 @@ export class ForecastPresenterComponent implements OnChanges {
   public keyDefaultOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
     return 0;
   };
+
+  public getLineChartDayByForecastDay(key: any) {
+    this.lineChartData[0].series = [];
+    this.transformedForecast.get(key).map(value => {
+      this.lineChartData[0].series.push({ name: formatDate(value.dt * 1000, "HH:mm", "en-GB"), value: value.main.temp });
+    });
+    return this.lineChartData;
+  }
 
   private mapForecastWithDay(forecast: FiveDayWeatherForecast): void {
     forecast.list.map(value => {
