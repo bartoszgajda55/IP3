@@ -4,11 +4,29 @@
       *ngFor="let forecast of (transformedForecast | keyvalue: keyDefaultOrder)"
       label="{{ forecast.value[Math.ceil((forecast.value.length - 1) / 2)].dt * 1000 | date: 'd LLLL' }}"
     >
-      <div class="forecast-presenter__weather-presenter">
-        <app-weather-presenter
-          fxFlex="1 1 auto"
-          [currentWeather]="forecast.value[Math.ceil((forecast.value.length - 1) / 2)]"
-        ></app-weather-presenter>
+      <div fxLayout="row wrap">
+        <div class="forecast-presenter__weather-presenter" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <app-weather-presenter
+            fxFlex="1 1 auto"
+            [currentWeather]="forecast.value[Math.ceil((forecast.value.length - 1) / 2)]"
+          ></app-weather-presenter>
+        </div>
+        <div class="forecast-presenter__charts" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <ngx-charts-line-chart
+            [scheme]="colorScheme"
+            [results]="multi"
+            gradient="true"
+            xAxis="true"
+            yAxis="true"
+            showXAxisLabel="true"
+            showYAxisLabel="true"
+            xAxisLabel="Hour"
+            yAxisLabel="Temperature"
+            autoScale="true"
+            roundDomains="true"
+          >
+          </ngx-charts-line-chart>
+        </div>
       </div>
     </mat-tab>
   </mat-tab-group>

@@ -12,8 +12,26 @@ export class ForecastPresenterComponent implements OnChanges {
   @Input() forecast: FiveDayWeatherForecast;
   public transformedForecast: Map<string, Array<Forecast>>;
   public Math: Math = Math;
-
-  constructor() {}
+  public colorScheme = { domain: ["#5AA454"] };
+  public multi: any[] = [
+    {
+      name: "Temperature",
+      series: [
+        {
+          name: "16",
+          value: 5
+        },
+        {
+          name: "17",
+          value: 8
+        },
+        {
+          name: "18",
+          value: 6
+        }
+      ]
+    }
+  ];
 
   ngOnChanges(changes: SimpleChanges) {
     this.mapForecastWithDay(this.forecast);
