@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { FiveDayWeatherForecast } from "src/app/interfaces/five-day-weather-forecast";
 import { formatDate, KeyValue } from "@angular/common";
 import { Forecast } from "src/app/interfaces/forecast";
+import * as shape from "d3-shape";
 
 @Component({
   selector: "app-forecast-presenter",
@@ -14,6 +15,7 @@ export class ForecastPresenterComponent implements OnChanges {
   public lineChartData: Array<{ name: string; series: any[] }> = [{ name: "Temperature", series: [] }];
   public Math: Math = Math;
   public colorScheme = { domain: ["#F9A825"] };
+  public curve = shape.curveBasis;
 
   ngOnChanges(changes: SimpleChanges) {
     this.mapForecastWithDay(this.forecast);
