@@ -15,7 +15,7 @@ export class ForecastPresenterComponent implements OnChanges {
   public lineChartData: Array<{ name: string; series: any[] }> = [{ name: "Temperature", series: [] }];
   public Math: Math = Math;
   public colorScheme = { domain: ["#F9A825"] };
-  public curve = shape.curveBasis;
+  public curve = shape.curveCardinal;
 
   ngOnChanges(changes: SimpleChanges) {
     this.mapForecastWithDay(this.forecast);
