@@ -22,6 +22,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,10 @@ import { VisualizationPageComponent } from "./components/visualization-page/visu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production })
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    }),
+    NgxChartsModule
   ],
   providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
