@@ -1,5 +1,5 @@
 <div class="forecast-presenter__container">
-  <mat-tab-group mat-align-tabs="center">
+  <mat-tab-group mat-align-tabs="center" color="accent">
     <mat-tab
       *ngFor="let forecast of (transformedForecast | keyvalue: keyDefaultOrder)"
       label="{{ forecast.value[Math.ceil((forecast.value.length - 1) / 2)].dt * 1000 | date: 'd LLLL' }}"
