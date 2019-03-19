@@ -16,7 +16,7 @@ export class SideNavComponent implements OnDestroy {
     { name: "Weather Map", href: "weather" },
     { name: "Earthquakes Map", href: "earthquakes" },
     { name: "Authors", href: "authors" },
-    { name: "Tutorial", href: "tutorial" },
+    { name: "Tutorial", href: "tutorial", hasSubmenu: true, submenu: [{ name: "JS Tutorial", href: "#" }] },
     { name: "Visualization", href: "visualization" }
   ];
 
