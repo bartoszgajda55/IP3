@@ -25,7 +25,15 @@
   <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
     <mat-sidenav #snav mode="over" fixedInViewport="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a *ngFor="let link of navLinks" mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+        <div *ngFor="let link of navLinks">
+          <div *ngIf="link.hasSubmenu; else noSubmenu">
+            <a mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+            <a mat-list-item *ngFor="let sublink of link.submenu" routerLink="{{ sublink.href }}" (click)="snav.toggle()">{{ sublink.name }}</a>
+          </div>
+          <ng-template #noSubmenu>
+            <a mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+          </ng-template>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
 

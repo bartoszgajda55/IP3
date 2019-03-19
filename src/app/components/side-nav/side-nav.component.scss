@@ -52,9 +52,6 @@
         font-weight: 500;
         transition: color 0.2s;
         font-size: 1.2rem;
-        &:hover {
-          // color: $color-grey-light;
-        }
         &:not(:last-of-type) {
           margin-right: 5px;
         }
