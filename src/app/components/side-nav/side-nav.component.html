@@ -6,7 +6,19 @@
     <a routerLink="/"><img src="assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo"/></a>
     <span class="side-nav__spacer"></span>
     <div class="side-nav__menu-container">
-      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</a>
+      <div *ngFor="let link of navLinks">
+        <div *ngIf="link.hasSubmenu; else noSubmenu">
+          <button mat-button [routerLink]="link.href" [matMenuTriggerFor]="subMenu" routerLinkActive="active" class="side-nav__menu-item">
+            {{ link.name }}
+          </button>
+          <mat-menu #subMenu="matMenu">
+            <button *ngFor="let sublink of link.submenu" [routerLink]="sublink.href" mat-menu-item>{{ sublink.name }}</button>
+          </mat-menu>
+        </div>
+        <ng-template #noSubmenu>
+          <button mat-button [routerLink]="link.href" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</button>
+        </ng-template>
+      </div>
     </div>
   </mat-toolbar>
 

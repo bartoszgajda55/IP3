@@ -51,11 +51,12 @@
         color: #fff;
         font-weight: 500;
         transition: color 0.2s;
+        font-size: 1.2rem;
         &:hover {
-          color: $color-grey-light;
+          // color: $color-grey-light;
         }
         &:not(:last-of-type) {
-          margin-right: 15px;
+          margin-right: 5px;
         }
         &.active {
           color: $color-secondary;
@@ -75,7 +76,7 @@
         display: none;
       }
       .side-nav__menu-container {
-        display: block;
+        display: flex;
       }
     }
   }
