@@ -8,6 +8,44 @@
           >
         </mat-card-header>
         <mat-card-content>
+
+
+
+            <button class="accordion">Section 1</button>
+            <div class="panel">
+              <p>Lorem ipsum.xsfbsddddddddddddddddddddddddddddddddddddddddddddddddddd..</p>
+            </div>
+            
+            <button class="accordion">Section 2</button>
+            <div class="panel">
+              <p>Lorem ipsum...</p>
+            </div>
+            
+            <button class="accordion">Section 3</button>
+            <div class="panel">
+              <p>Lorem ipsum...</p>
+            </div>
+
+            <script>
+              var acc = document.getElementsByClassName("accordion");
+              var i;
+              
+              for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var panel = this.nextElementSibling;
+                  if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                  } else {
+                    panel.style.display = "block";
+                  }
+                });
+              }
+              </script>
+
+
+
+
             <h3> What is GeoJSON? </h3>
             <p>GeoJSON is a format for encoding a variety of geographic data structures. A GeoJSON object may 
               represent a geometry, a feature, or a collection of features. GeoJSON supports the following 
