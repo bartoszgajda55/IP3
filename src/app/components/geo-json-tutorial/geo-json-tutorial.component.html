@@ -11,38 +11,28 @@
 
 
 
-            <button class="accordion">Section 1</button>
-            <div class="panel">
-              <p>Lorem ipsum.xsfbsddddddddddddddddddddddddddddddddddddddddddddddddddd..</p>
-            </div>
-            
-            <button class="accordion">Section 2</button>
-            <div class="panel">
-              <p>Lorem ipsum...</p>
-            </div>
-            
-            <button class="accordion">Section 3</button>
-            <div class="panel">
-              <p>Lorem ipsum...</p>
-            </div>
+          <mat-accordion>
 
-            <script>
-              var acc = document.getElementsByClassName("accordion");
-              var i;
-              
-              for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                  this.classList.toggle("active");
-                  var panel = this.nextElementSibling;
-                  if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                  } else {
-                    panel.style.display = "block";
-                  }
-                });
-              }
-              </script>
-
+            <mat-expansion-panel class= "matheader">
+              <mat-expansion-panel-header>
+                <p>What is GeoJSON?</p>
+              </mat-expansion-panel-header>
+          
+              This the expansion 1 content
+          
+            </mat-expansion-panel>
+          
+            
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                This is the expansion 2 title
+              </mat-expansion-panel-header>
+          
+              This the expansion 2 content
+          
+            </mat-expansion-panel>
+          
+          </mat-accordion>
 
 
 
@@ -62,8 +52,7 @@
               <h3>Geometry Object</h3>
             <p>A geometry is a GeoJSON object where the type member’s value is one of the following strings: "Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon", or "GeometryCollection". </p>
             
-            <p> </p>
-
+            
 
 
         </mat-card-content>

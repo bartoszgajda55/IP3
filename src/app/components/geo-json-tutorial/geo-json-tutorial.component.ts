@@ -12,4 +12,7 @@ export class GeoJSONTutorialComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  
+
 }
