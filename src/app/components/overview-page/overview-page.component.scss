@@ -11,6 +11,7 @@
   }
   .mat-card .mat-divider {
     margin: 0 20px;
+    width: calc(100% - 40px);
   }
   .mat-expansion-panel-header-title {
     max-width: 80px;
