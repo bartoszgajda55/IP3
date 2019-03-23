@@ -3,11 +3,14 @@
 .overview-page {
   padding: 20px;
   min-height: calc(100vh - 354px);
-  .description {
-    font-weight: normal;
+  .heading {
+    margin: 60px 0 10px;
   }
-  .mat-divider {
-    position: initial;
+  .content {
+    margin-bottom: 30px;
+  }
+  .mat-card .mat-divider {
+    margin: 0 20px;
   }
   .mat-expansion-panel-header-title {
     max-width: 80px;
