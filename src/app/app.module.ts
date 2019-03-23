@@ -23,6 +23,7 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { OverviewPageComponent } from './components/overview-page/overview-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     ForecastPresenterComponent,
     NoCommaPipe,
     FooterComponent,
-    VisualizationPageComponent
+    VisualizationPageComponent,
+    OverviewPageComponent
   ],
   imports: [
     BrowserModule,
