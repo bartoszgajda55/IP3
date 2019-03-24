@@ -1,9 +1,8 @@
 /// <reference types="@types/googlemaps" />
 import { Component } from "@angular/core";
 import { EarthquakeService } from "../../services/earthquake/earthquake.service";
-import { Observable } from "rxjs";
 import { MatSelectChange } from "@angular/material";
-import { FeatureCollection, Feature } from "geojson";
+import { Feature } from "geojson";
 import { take } from "rxjs/operators";
 
 @Component({
