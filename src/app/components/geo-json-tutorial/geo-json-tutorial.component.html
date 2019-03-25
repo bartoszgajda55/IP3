@@ -22,14 +22,36 @@
           
             </mat-expansion-panel>
           
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                GeoJSON syntax
+              </mat-expansion-panel-header>
+          
+              The GeoJSON object must have a 'type' value, which is a string that determines the type of the GeoJSON object. 
+              It could be either geometry, a feature or a collection of features.
+
+
+            </mat-expansion-panel>
+          
+          </mat-accordion>
+
             
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 Geometry
               </mat-expansion-panel-header>
           
-              This the expansion 2 content
+              A geometry value describes the type of the GeoJSON object. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". Every one of this types except for the GeometryCollection must have a "coordinates" value.
           
+              "Point"
+              "MultiPoint"
+              "Line String"
+              "MultiLineString"
+              "Polygon"
+              "MultiPolygon"
+              "GeometryCollection"
+
+
             </mat-expansion-panel>
           
           </mat-accordion>
