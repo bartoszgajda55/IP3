@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AgmCoreModule } from "@agm/core";
+import { AgmCoreModule, GoogleMapsAPIWrapper } from "@agm/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -22,6 +22,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
+import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { environment } from "../environments/environment";
     ForecastPresenterComponent,
     NoCommaPipe,
     FooterComponent,
+    VisualizationPageComponent,
     GeoJSONTutorialComponent
   ],
   imports: [
@@ -50,9 +53,10 @@ import { environment } from "../environments/environment";
     HttpClientModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
-    })
+    }),
+    NgxChartsModule
   ],
-  providers: [OpenWeatherService, WeatherIconService],
+  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

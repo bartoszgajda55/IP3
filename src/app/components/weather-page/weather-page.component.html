@@ -81,7 +81,7 @@
           </ng-template>
         </div>
         <div class="weather__map" fxFlex="0 1 100%">
-          <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
+          <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom" [streetViewControl]="false">
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
           </agm-map>
         </div>
