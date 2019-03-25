@@ -24,12 +24,11 @@ import { AgmJsMarkerClustererModule } from "@agm/js-marker-clusterer";
 import { AgmSnazzyInfoWindowModule } from "@agm/snazzy-info-window";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NoQuotemarkPipe } from "./pipes/no-quotemark/no-quotemark.pipe";
-import { FooterComponent } from "./components/footer/footer.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-import { OverviewPageComponent } from './components/overview-page/overview-page.component';
+import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +41,7 @@ import { OverviewPageComponent } from './components/overview-page/overview-page.
     NoCommaPipe,
     EarthquakePageComponent,
     FooterComponent,
-    NoQuotemarkPipe
+    NoQuotemarkPipe,
     FooterComponent,
     VisualizationPageComponent,
     OverviewPageComponent
@@ -61,15 +60,13 @@ import { OverviewPageComponent } from './components/overview-page/overview-page.
     ReactiveFormsModule,
     HttpClientModule,
     AgmJsMarkerClustererModule,
-    AgmSnazzyInfoWindowModule
-  ],
-  providers: [OpenWeatherService, WeatherIconService, EarthquakeService],
+    AgmSnazzyInfoWindowModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     }),
     NgxChartsModule
   ],
-  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper],
+  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper, EarthquakeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
