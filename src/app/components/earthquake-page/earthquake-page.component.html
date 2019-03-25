@@ -3,62 +3,40 @@
     <mat-card-title>Earthquake Map</mat-card-title>
     <mat-card-subtitle>This page allows to receive current earthquakes</mat-card-subtitle>
     <mat-card-content>
-      <div class="select_earthquakes" >
-        <h4>Select earthquake time</h4>
+      <div class="select_earthquakes">
+        <h4>Select Earthquake Time Frame:</h4>
         <mat-form-field>
-          <mat-select [(value)]="selected">
-            <mat-option value="option1">All day</mat-option>
-            <mat-option value="option2">Last Hour</mat-option>
-            <mat-option value="option3">All month</mat-option>
+          <mat-select placeholder="Select Time Frame" (selectionChange)="onTimeFrameChange($event)" [(value)]="selected">
+            <mat-option value="day">All day</mat-option>
+            <mat-option value="hour">Last Hour</mat-option>
+            <mat-option value="month">All month</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-
-      <agm-map *ngIf="(selected ==='option1' && currentEarthquakes$ | async) as currentEarthquakes" [streetViewControl]="false" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
-        <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-          <agm-marker   *ngFor="let earthquake of currentEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
-            <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
+      <agm-map [streetViewControl]="false" [latitude]="0" [longitude]="0" [scrollwheel]="true" [zoom]="2" (mapReady)="onMapReady($event)">
+        <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+          <agm-marker
+            *ngFor="let earthquake of markers"
+            [latitude]="earthquake.geometry.coordinates[1]"
+            [longitude]="earthquake.geometry.coordinates[0]"
+          >
+            <agm-snazzy-info-window
+              closeWhenOthersOpen="true"
+              isOpen="false"
+              maxHeight="200px"
+              [latitude]="earthquake.geometry.coordinates[1]"
+              [longitude]="earthquake.geometry.coordinates[0]"
+            >
               <ng-template>
-                {{ earthquake.properties.place | json | noQuotemark }}
+                <p><strong>Magnitude: </strong> {{ earthquake.properties.mag }}</p>
+                <p><strong>Place: </strong> {{ earthquake.properties.place }}</p>
+                <p><strong>Time: </strong> {{ earthquake.properties.time | date }}</p>
+                <p><strong>Type: </strong> {{ earthquake.properties.type }}</p>
               </ng-template>
             </agm-snazzy-info-window>
           </agm-marker>
         </agm-marker-cluster>
       </agm-map>
-
-      <agm-map *ngIf="(selected ==='option2' && LastHourEarthquakes$ | async) as hourEarthquakes" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
-        <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-          <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
-            <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
-              <ng-template>
-                {{ earthquake.properties.place | json | noQuotemark }}
-              </ng-template>
-            </agm-snazzy-info-window>
-
-          </agm-marker>
-
-        </agm-marker-cluster>
-
-      </agm-map><agm-map *ngIf="(selected ==='option3' && AllMonthEarthquakes$ | async) as hourEarthquakes" [latitude]="35" [longitude]="39" [scrollwheel]="true" [zoom]="2.5">
-        <agm-marker-cluster  imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-          <agm-marker   *ngFor="let earthquake of hourEarthquakes.features" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
-            <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="true" [latitude]="earthquake.geometry.coordinates['1']" [longitude]="earthquake.geometry.coordinates['0']">
-              <ng-template>
-                {{ earthquake.properties.place | json | noQuotemark }}
-              </ng-template>
-            </agm-snazzy-info-window>
-
-          </agm-marker>
-
-        </agm-marker-cluster>
-      </agm-map>
-
-
-
-
-
-
-
     </mat-card-content>
   </mat-card>
 </div>
