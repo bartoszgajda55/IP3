@@ -3,17 +3,22 @@
     <mat-card-title>Earthquake Map</mat-card-title>
     <mat-card-subtitle>This page allows to receive current earthquakes</mat-card-subtitle>
     <mat-card-content>
-      <div class="select_earthquakes">
-        <h4>Select Earthquake Time Frame:</h4>
-        <mat-form-field>
-          <mat-select placeholder="Select Time Frame" (selectionChange)="onTimeFrameChange($event)" [(value)]="selected">
-            <mat-option value="day">All day</mat-option>
-            <mat-option value="hour">Last Hour</mat-option>
-            <mat-option value="month">All month</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div class="header" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
+        <div class="select_earthquakes" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Select Earthquake Time Frame:</h4>
+          <mat-form-field>
+            <mat-select placeholder="Select Time Frame" (selectionChange)="onTimeFrameChange($event)" [(value)]="selected">
+              <mat-option value="day">All day</mat-option>
+              <mat-option value="hour">Last Hour</mat-option>
+              <mat-option value="month">All month</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="earthquakes_info" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Earthquakes</h4>
+        </div>
       </div>
-      <agm-map [streetViewControl]="false" [latitude]="0" [longitude]="0" [scrollwheel]="true" [zoom]="2" (mapReady)="onMapReady($event)">
+      <agm-map [streetViewControl]="false" [latitude]="0" [longitude]="-20" [scrollwheel]="true" [zoom]="3" (mapReady)="onMapReady($event)">
         <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
           <agm-marker
             *ngFor="let earthquake of markers"
