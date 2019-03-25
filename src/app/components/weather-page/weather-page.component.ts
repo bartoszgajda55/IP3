@@ -131,7 +131,8 @@ export class WeatherPageComponent {
 
   private showSnackWithError(message: string): void {
     this.snackBar.open(message, "", {
-      duration: this.SNACK_DURATION
+      duration: this.SNACK_DURATION,
+      verticalPosition: "top"
     });
   }
 }
