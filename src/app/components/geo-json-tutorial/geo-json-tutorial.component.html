@@ -12,28 +12,34 @@
 
           <mat-accordion>
 
-            <mat-expansion-panel class= "matheader">
-              <mat-expansion-panel-header>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class= "matheader">
                 What is GeoJSON?
               </mat-expansion-panel-header>
           
               GeoJSON is a format used to represent geographic data. A GeoJSON data stucture is a basic JSON object. 
-              An object is made of name-value pairs. There are three types of GeoJSON objects: geometry, a feature and a collection of features.
-          
-            </mat-expansion-panel>
-          
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                GeoJSON syntax
-              </mat-expansion-panel-header>
-          
+              An object is made of name-value pairs. 
               The GeoJSON object must have a 'type' value, which is a string that determines the type of the GeoJSON object. 
               It could be either geometry, a feature or a collection of features.
+              The GeoJSON also have a 'geometry' value that is a geometry object. Each geometry object has a 'type' and 'coordinates' value.             
 
+              <pre>
+                {{ '{' }}
+                "type": "Feature",
+                "geometry": {{ '{' }}
+                  "type": "Point",
+                  "coordinates": [125.6, 10.1]
+                {{ '}' }},
+                "properties": {{ '{' }}
+                  "name": "Dinagat Islands"
+                {{ '}' }}
+              {{ '}' }}
+            </pre>
+              
 
             </mat-expansion-panel>
           
-          </mat-accordion>
+          
 
             
             <mat-expansion-panel>
@@ -42,19 +48,19 @@
               </mat-expansion-panel-header>
           
               A geometry value describes the type of the GeoJSON object. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". Every one of this types except for the GeometryCollection must have a "coordinates" value.
-          
-              "Point"
-              "MultiPoint"
-              "Line String"
-              "MultiLineString"
-              "Polygon"
-              "MultiPolygon"
-              "GeometryCollection"
-
+              <ul>
+              <li>"Point" - the "coordinates" value must be a single position</li>
+              <li>"MultiPoint" - the "coordinates" value must be an array of positions</li>
+              <li>"Line String" - the "coordinates" value must be an array of two or more positions</li>
+              <li>"MultiLineString" - the "coordinates" value must be an array of LineString coordinate arrays</li>
+              <li>"Polygon" - the "coordinates" value must be an array of LinearRing coordinate arrays</li>
+              <li>"MultiPolygon" - the "coordinates" value must be an array of Polygon coordinate array</li>
+              <li>"GeometryCollection" - doesn't have a value for coordinate, instead it represents a collection of geometry objects</li>
+              </ul>
 
             </mat-expansion-panel>
           
-          </mat-accordion>
+          
 
 
           <mat-expansion-panel>
@@ -62,11 +68,11 @@
               Feature
             </mat-expansion-panel-header>
         
-            This the expansion 2 content
+            A feature object also contains a "geometry" value. Also it has a "properties" value.
         
           </mat-expansion-panel>
         
-        </mat-accordion>
+        
 
 
 
@@ -75,8 +81,32 @@
             A collection of features
           </mat-expansion-panel-header>
       
-          This the expansion 2 content
-      
+          A FeatureCollection object must contain a "feature" value that is an array of feature objects.
+          <pre>
+          Example:
+
+          {{ '{' }} "type": "FeatureCollection",
+                  "features": [
+                  {{ '{' }} "type": "Feature",
+                      "geometry": {{ '{' }}"type": "Point", "coordinates": [102.0, 0.5] {{ '}' }},
+                      "properties": {{ '{' }}"prop0": "value0" {{ '}' }}
+                      {{ '}' }},
+                      {{ '{' }} "type": "Feature",
+                      "geometry": {{ '{' }}
+                        "type": "LineString",
+                        "coordinates": [
+                          [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                          ]
+                          {{ '}' }},
+                      "properties": {{ '{' }}
+                        "prop0": "value0",
+                        "prop1": 0.0
+                        {{ '}' }}
+                        {{ '}' }},
+                    
+                    ]
+                    {{ '}' }}
+      </pre>
         </mat-expansion-panel>
       
       </mat-accordion>
