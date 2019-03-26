@@ -8,9 +8,93 @@
         </mat-card-header>
         <mat-card-content>
 
+            <mat-tab-group>
+                <mat-tab label="What is GeoJSON?">
+                  <h1>Some tab content</h1>
+                 <p> GeoJSON is a format used to represent geographic data. A GeoJSON data stucture is a basic JSON object. 
+                      An object is made of name-value pairs. 
+                      The GeoJSON object must have a 'type' value, which is a string that determines the type of the GeoJSON object. 
+                      It could be either geometry, a feature or a collection of features.
+                      The GeoJSON also have a 'geometry' value that is a geometry object. Each geometry object has a 'type' and 'coordinates' value.             
+                  </p>
+                      <pre>
+                        {{ '{' }}
+                        "type": "Feature",
+                        "geometry": {{ '{' }}
+                          "type": "Point",
+                          "coordinates": [125.6, 10.1]
+                          {{ '}' }},
+                        "properties": {{ '{' }}
+                          "name": "Dinagat Islands"
+                         {{ '}' }}
+                      {{ '}' }}
+                    </pre>
+                </mat-tab>
+
+                <mat-tab label="Geometry">
+                  <h1>Some more tab content</h1>
+                  <p>              A geometry value describes the type of the GeoJSON object. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". Every one of this types except for the GeometryCollection must have a "coordinates" value.
+                    </p>
+                    <ul>
+                        <li>"Point" - the "coordinates" value must be a single position</li>
+                        <li>"MultiPoint" - the "coordinates" value must be an array of positions</li>
+                        <li>"Line String" - the "coordinates" value must be an array of two or more positions</li>
+                        <li>"MultiLineString" - the "coordinates" value must be an array of LineString coordinate arrays</li>
+                        <li>"Polygon" - the "coordinates" value must be an array of LinearRing coordinate arrays</li>
+                        <li>"MultiPolygon" - the "coordinates" value must be an array of Polygon coordinate array</li>
+                        <li>"GeometryCollection" - doesn't have a value for coordinate, instead it represents a collection of geometry objects</li>
+                        </ul>
+
+                </mat-tab>
+              
+
+              <mat-tab label="Feature">
+                  <h1>Some more tab content</h1>
+                  <p>              A feature object also contains a "geometry" value. Also it has a "properties" value.</p>
+                   
+
+                </mat-tab>
+              
 
 
-          <mat-accordion>
+              <mat-tab label="A collection of features">
+                  <h1>Some more tab content</h1>
+                  <p>              A FeatureCollection object must contain a "feature" value that is an array of feature objects.</p>
+                   
+                  <pre>
+                      Example:
+            
+                      {{ '{' }} "type": "FeatureCollection",
+                              "features": [
+                              {{ '{' }} "type": "Feature",
+                                  "geometry": {{ '{' }}"type": "Point", "coordinates": [102.0, 0.5] {{ '}' }},
+                                  "properties": {{ '{' }}"prop0": "value0" {{ '}' }}
+                                  {{ '}' }},
+                                  {{ '{' }} "type": "Feature",
+                                  "geometry": {{ '{' }}
+                                    "type": "LineString",
+                                    "coordinates": [
+                                      [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                                      ]
+                                      {{ '}' }},
+                                  "properties": {{ '{' }}
+                                    "prop0": "value0",
+                                    "prop1": 0.0
+                                    {{ '}' }}
+                                    {{ '}' }},
+                                
+                                ]
+                                {{ '}' }}
+                  </pre>
+                </mat-tab>
+              </mat-tab-group>
+
+
+
+
+
+
+         <!-- <mat-accordion>
 
             <mat-expansion-panel>
               <mat-expansion-panel-header class= "matheader">
@@ -110,8 +194,8 @@
         </mat-expansion-panel>
       
       </mat-accordion>
-            
-            
+            -->
+     
 
 
         </mat-card-content>
