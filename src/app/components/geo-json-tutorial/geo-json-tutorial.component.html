@@ -8,9 +8,9 @@
         </mat-card-header>
         <mat-card-content>
 
-            <mat-tab-group>
+            <mat-tab-group mat-align-tabs="center" >
                 <mat-tab label="What is GeoJSON?">
-                  <h1>Some tab content</h1>
+                  
                  <p> GeoJSON is a format used to represent geographic data. A GeoJSON data stucture is a basic JSON object. 
                       An object is made of name-value pairs. 
                       The GeoJSON object must have a 'type' value, which is a string that determines the type of the GeoJSON object. 
@@ -22,34 +22,38 @@
                         "type": "Feature",
                         "geometry": {{ '{' }}
                           "type": "Point",
-                          "coordinates": [125.6, 10.1]
+                          "coordinates": [longitude, latitude, depth]
                           {{ '}' }},
                         "properties": {{ '{' }}
-                          "name": "Dinagat Islands"
+                          "name": "string"
                          {{ '}' }}
                       {{ '}' }}
                     </pre>
                 </mat-tab>
 
                 <mat-tab label="Geometry">
-                  <h1>Some more tab content</h1>
+                  
                   <p>              A geometry value describes the type of the GeoJSON object. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". Every one of this types except for the GeometryCollection must have a "coordinates" value.
                     </p>
-                    <ul>
-                        <li>"Point" - the "coordinates" value must be a single position</li>
-                        <li>"MultiPoint" - the "coordinates" value must be an array of positions</li>
-                        <li>"Line String" - the "coordinates" value must be an array of two or more positions</li>
-                        <li>"MultiLineString" - the "coordinates" value must be an array of LineString coordinate arrays</li>
-                        <li>"Polygon" - the "coordinates" value must be an array of LinearRing coordinate arrays</li>
-                        <li>"MultiPolygon" - the "coordinates" value must be an array of Polygon coordinate array</li>
-                        <li>"GeometryCollection" - doesn't have a value for coordinate, instead it represents a collection of geometry objects</li>
-                        </ul>
+
+                    <mat-list>
+                        <mat-list-item> "Point" - the "coordinates" value must be a single position </mat-list-item>
+                        <mat-list-item> "MultiPoint" - the "coordinates" value must be an array of positions </mat-list-item>
+                        <mat-list-item> "Line String" - the "coordinates" value must be an array of two or more positions </mat-list-item>
+                        <mat-list-item> "MultiLineString" - the "coordinates" value must be an array of LineString coordinate arrays </mat-list-item>
+                        <mat-list-item> "Polygon" - the "coordinates" value must be an array of LinearRing coordinate arrays </mat-list-item>
+                        <mat-list-item> "MultiPolygon" - the "coordinates" value must be an array of Polygon coordinate array </mat-list-item>
+                        <mat-list-item> "GeometryCollection" - doesn't have a value for coordinate, instead it represents a collection of geometry objects </mat-list-item>
+                      </mat-list>
+
+
+                    
 
                 </mat-tab>
               
 
               <mat-tab label="Feature">
-                  <h1>Some more tab content</h1>
+                  
                   <p>              A feature object also contains a "geometry" value. Also it has a "properties" value.</p>
                    
 
@@ -58,7 +62,7 @@
 
 
               <mat-tab label="A collection of features">
-                  <h1>Some more tab content</h1>
+                  
                   <p>              A FeatureCollection object must contain a "feature" value that is an array of feature objects.</p>
                    
                   <pre>
@@ -67,14 +71,16 @@
                       {{ '{' }} "type": "FeatureCollection",
                               "features": [
                               {{ '{' }} "type": "Feature",
-                                  "geometry": {{ '{' }}"type": "Point", "coordinates": [102.0, 0.5] {{ '}' }},
+                                  "geometry": {{ '{' }}"type": "Point", "coordinates": [longitude,
+                                  latitude,
+                                  depth] {{ '}' }},
                                   "properties": {{ '{' }}"prop0": "value0" {{ '}' }}
                                   {{ '}' }},
                                   {{ '{' }} "type": "Feature",
                                   "geometry": {{ '{' }}
                                     "type": "LineString",
                                     "coordinates": [
-                                      [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                                      [0, 0], [0, 0], [0, 0], [0, 0]
                                       ]
                                       {{ '}' }},
                                   "properties": {{ '{' }}
@@ -87,6 +93,24 @@
                                 {{ '}' }}
                   </pre>
                 </mat-tab>
+
+                <mat-tab label="References">
+                  
+                  <p> Resources used and more information about GeoJSON:</p>
+                  <mat-list>
+                    <mat-list-item>http://geojson.org/geojson-spec.html </mat-list-item>
+                    <mat-list-item>https://macwright.org/2015/03/23/geojson-second-bite.html#linestrings </mat-list-item>
+                    <mat-list-item> https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php</mat-list-item>
+                    <mat-list-item> </mat-list-item>
+
+                  </mat-list>
+                   
+                  
+                </mat-tab>
+
+
+
+
               </mat-tab-group>
 
 
