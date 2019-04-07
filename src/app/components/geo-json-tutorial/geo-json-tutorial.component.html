@@ -15,7 +15,9 @@
                       An object is made of name-value pairs. 
                       The GeoJSON object must have a 'type' value, which is a string that determines the type of the GeoJSON object. 
                       It could be either geometry, a feature or a collection of features.
-                      The GeoJSON also have a 'geometry' value that is a geometry object. Each geometry object has a 'type' and 'coordinates' value.             
+                      The GeoJSON also have a 'geometry' value that is a geometry object. Each geometry object has a 'type' and 'coordinates' value. The 'coordinates' value is a decimal number, which represents a dimension, typically the longitude and latitude.  
+                      GeoJSON data structure is used as a programatic interface for applications.
+                      The syntax of GeoJSON is shown below.          
                   </p>
                       <pre>
                         {{ '{' }}
@@ -33,7 +35,7 @@
 
                 <mat-tab label="Geometry">
                   
-                  <p>              A geometry value describes the type of the GeoJSON object. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". Every one of this types except for the GeometryCollection must have a "coordinates" value.
+                  <p>              A geometry value describes the type/shape of the GeoJSON object. Every geometry, except for the GeometryCollection, has a 'type' and 'coordinates' value. It could be "Point", "MultiPoint", "Line String", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection". 
                     </p>
 
                     <mat-list>
@@ -54,8 +56,19 @@
 
               <mat-tab label="Feature">
                   
-                  <p>              A feature object also contains a "geometry" value. Also it has a "properties" value.</p>
-                   
+                  <p>              A feature object also contains a "geometry" value. Also it has a "properties" value, that can be any kind of JSON object. The syntax is shown below.</p>
+                  <pre>
+                      {{ '{' }}
+                      "type": "Feature",
+                      "geometry": {{ '{' }}
+                        "type": "Point",
+                        "coordinates": [longitude, latitude, depth]
+                        {{ '}' }},
+                      "properties": {{ '{' }}
+                        "name": "string"
+                       {{ '}' }}
+                    {{ '}' }}
+                  </pre>
 
                 </mat-tab>
               
@@ -63,7 +76,7 @@
 
               <mat-tab label="A collection of features">
                   
-                  <p>              A FeatureCollection object must contain a "feature" value that is an array of feature objects.</p>
+                  <p>              A FeatureCollection object has a "type" of "FeatureCollection" and must contain an array of objects of type "feature".</p>
                    
                   <pre>
                       Example:
@@ -98,10 +111,10 @@
                   
                   <p> Resources used and more information about GeoJSON:</p>
                   <mat-list>
-                    <mat-list-item>http://geojson.org/geojson-spec.html </mat-list-item>
-                    <mat-list-item>https://macwright.org/2015/03/23/geojson-second-bite.html#linestrings </mat-list-item>
-                    <mat-list-item> https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php</mat-list-item>
-                    <mat-list-item> </mat-list-item>
+                    <mat-list-item> <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a> </mat-list-item>
+                    <mat-list-item> <a href="https://macwright.org/2015/03/23/geojson-second-bite.html#linestrings">https://macwright.org/2015/03/23/geojson-second-bite.html#linestrings</a> </mat-list-item>
+                    <mat-list-item> <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php">https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.ph</a></mat-list-item>
+                    <mat-list-item> <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php</a> </mat-list-item>
 
                   </mat-list>
                    
