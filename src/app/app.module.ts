@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
+import { EarthquakeTutorialComponent } from "./components/earthquake-tutorial/earthquake-tutorial.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
@@ -32,7 +33,8 @@ import { environment } from "../environments/environment";
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
-    FooterComponent
+    FooterComponent,
+    EarthquakeTutorialComponent
     
   ],
   imports: [

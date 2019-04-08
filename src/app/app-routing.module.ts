@@ -2,13 +2,15 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
+import { EarthquakeTutorialComponent } from "./components/earthquake-tutorial/earthquake-tutorial.component";
+
 
 const routes: Routes = [
   { path: "overview", component: PageNotFoundComponent },
   { path: "weather", component: WeatherPageComponent },
   { path: "earthquakes", component: PageNotFoundComponent },
   { path: "authors", component: PageNotFoundComponent },
-  { path: "tutorial", component: PageNotFoundComponent },
+  { path: "tutorial", component: EarthquakeTutorialComponent },
   { path: "", redirectTo: "overview", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
 ];
