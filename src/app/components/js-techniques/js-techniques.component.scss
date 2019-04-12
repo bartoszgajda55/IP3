@@ -1,9 +1,14 @@
 header {
-    text-align: center;
+  text-align: center;
+}
+
+.mat-tab-body-content {
+  display: flex;
+  justify-content: center;
 }
 
 .text {
-    text-align: center;
+  text-align: center;
 }
 
 .tabs {
@@ -21,7 +26,6 @@ header {
   text-align: center;
   height: 300px;
   width: 600px;
-  
 }
 
 @media screen and (max-width: 300px) {
@@ -32,7 +36,6 @@ header {
     font-size: 10px;
   }
 }
-
 
 @media screen and (max-width: 600px) {
   .example-large-box {
@@ -63,23 +66,17 @@ h3 {
   text-align: center;
 }
 
-p{
+p {
   text-align: center;
-
 }
 
 .example-card {
+  margin: 0 auto;
   max-width: 600px;
-  flex-direction: column;
   margin-bottom: 20px;
-  
 }
 
 .example-header-image {
-  background-image: url('https://javascript.info/article/coding-style/code-style@2x.png');
+  background-image: url("https://javascript.info/article/coding-style/code-style@2x.png");
   background-size: cover;
-
 }
-
-
-  
