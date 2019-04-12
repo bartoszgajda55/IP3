@@ -6,51 +6,80 @@ header {
     text-align: center;
 }
 
-* {
-    box-sizing: border-box;
-  }
+.tabs {
+  flex-direction: column;
+}
 
-
-
-  .column1 {
-    position: center;
-    float: center;
-    display: center;
-    width: 100%;
-    padding: 0 10px;
-    //position: relative;
-  }
+.example-large-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  height: 300px;
+  width: 600px;
   
-   /* Remove extra left and right margins, due to padding */
-   .row {margin: 0 -5px;}
-  
-   /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+}
 
-  /* Responsive columns */
-  @media screen and (max-width: 600px) {
-    .column1 {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-    
-    
-    
-  }
-  
-  /* Style the counter cards */
-  .card {
-    
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
+@media screen and (max-width: 300px) {
+  .example-large-box {
+    width: 25%;
+    display: block;
     margin-bottom: 20px;
-   
+    font-size: 10px;
   }
+}
+
+
+@media screen and (max-width: 600px) {
+  .example-large-box {
+    width: 50%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .example-large-box {
+    width: 70%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 7px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .example-large-box {
+    width: 90%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+}
+h3 {
+  text-align: center;
+}
+
+p{
+  text-align: center;
+
+}
+
+.example-card {
+  max-width: 600px;
+  flex-direction: column;
+  margin-bottom: 20px;
   
+}
+
+.example-header-image {
+  background-image: url('https://javascript.info/article/coding-style/code-style@2x.png');
+  background-size: cover;
+
+}
+
+
   
