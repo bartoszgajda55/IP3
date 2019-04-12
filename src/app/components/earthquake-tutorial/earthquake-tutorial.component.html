@@ -10,23 +10,57 @@
         For each earthquake a card with information is provided. The card contains data about the magnitude, place, time and type of the earthquake.
         To gather all of the data we have used the Earthquake Catalog API. Below we have explained how to use the API.
       </p>
-      <mat-accordion>
 
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
+      The URL for accessing the data is: 
+      <h4>https://earthquake.usgs.gov/fdsnws/event/1/[METHOD[?PARAMETERS]]</h4>
+      <p>Different methods and parameters can be used to filter the data. The parameters are key=value pairs using the HTTP GET method. These methods and parameters are listed below.</p>
+      <mat-accordion class = "accordion">
+
+          <mat-expansion-panel class = "panel">
+            <mat-expansion-panel-header class="header">
               Methods
             </mat-expansion-panel-header>
         
-            This the expansion 1 content
-        
+            <mat-card class = "card"> <p>To submit data request: </p><h4>query</h4>
+            URL: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02
+            </mat-card>
+
+            <mat-card class = "card">
+              <p> To perform a count on a data request:</p> <h4>count</h4>
+               URL: https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson
+            </mat-card>
+
+          <mat-card class = "card">
+            <p>To request available catalogs: </p><h4>catalogs</h4>
+            URL: https://earthquake.usgs.gov/fdsnws/event/1/catalogs
+          </mat-card>
           </mat-expansion-panel>
         
           <mat-expansion-panel>
             <mat-expansion-panel-header>
-                Query method Parameters
+                Parameters
             </mat-expansion-panel-header>
         
-            This the expansion 2 content
+            <mat-card class = "card"> 
+              <h3>Formats: specify the data format</h3> 
+              <p>The format can be csv, geojson, kml, quakeml, text or xml. If a format is not specified the default one is quakeml.</p>
+
+              URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=xml
+              This example will return the specified data in the xml format.
+              </mat-card>
+  
+              <mat-card class = "card">
+                <h3> Time: specify the timeframe for which earthquakes happened</h3> 
+                <p>All times use the ISO8601 Date/Time format, for example 2019-04-08T18:15:34. The parameters can be endtime, starttime or updatedafter.</p>
+                URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2014-04-01&endtime=2014-04-02
+                This example will return all earthquake between 1st and 2nd April.
+              </mat-card>
+  
+            <mat-card class = "card">
+                <h3>Location: </h3>
+                <p></p>
+             
+            </mat-card>
         
           </mat-expansion-panel>
         
