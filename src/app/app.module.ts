@@ -18,10 +18,17 @@ import { WeatherPageComponent } from "./components/weather-page/weather-page.com
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
+import { EarthquakePageComponent } from "./components/earthquake-page/earthquake-page.component";
+import { EarthquakeService } from "./services/earthquake/earthquake.service";
+import { AgmJsMarkerClustererModule } from "@agm/js-marker-clusterer";
+import { AgmSnazzyInfoWindowModule } from "@agm/snazzy-info-window";
 import { FooterComponent } from "./components/footer/footer.component";
+import { NoQuotemarkPipe } from "./pipes/no-quotemark/no-quotemark.pipe";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 
 @NgModule({
   declarations: [
@@ -32,8 +39,12 @@ import { VisualizationPageComponent } from "./components/visualization-page/visu
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
+    EarthquakePageComponent,
     FooterComponent,
-    VisualizationPageComponent
+    NoQuotemarkPipe,
+    FooterComponent,
+    VisualizationPageComponent,
+    OverviewPageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +59,14 @@ import { VisualizationPageComponent } from "./components/visualization-page/visu
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production })
+    AgmJsMarkerClustererModule,
+    AgmSnazzyInfoWindowModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
+    }),
+    NgxChartsModule
   ],
-  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper],
+  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper, EarthquakeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
