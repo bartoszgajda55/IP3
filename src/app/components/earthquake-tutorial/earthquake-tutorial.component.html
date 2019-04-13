@@ -57,12 +57,44 @@
               </mat-card>
   
             <mat-card class = "card">
-                <h3>Location: </h3>
-                <p></p>
+                <h3>Location: specify the coordinates for a location</h3>
+                <p>The paramaters can be minlatitude, maxlatitude, minlongitude, maxlongitude. For minlatitude and maxlatitude the value must be between -90 and 90 degrees. For minlongitude and maxlongitude the value must be between -360 and 360 degrees.</p>
+                URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=42.9&maxlongitude=43
+                This example will return all earthquakes that happened in the range specified.
+
+                <p>To perform a circle search the request should contain all of the following parameters: latitude (value between -90 and 90), longitude (value between -180 and 180), maxradius (value between 0 and 180).</p>
+                URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=55.864239&longitude=-4.251806&maxradius=20
+                This example will return all earthquakes for the specified coordinates.
+              </mat-card>
+
+            <mat-card class = "card">
+                <h3>Other parameters </h3>
+                <p>Some other useful parameter is orderby, which orders the request by time, time-asc, magnitude, magnitude-asc. </p>
+                  URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time
+                  This example will return all earthquakes ordered by time in descending order.
+
+
+                  <p>Another parameter is maxmagnitude which limits the earthquakes with a magnitude smaller than the specified magnitude.
+                </p>
+                URL example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&maxmagnitude=8
+                This example will retunr earthquakes with magnitude less than the value specified.
              
             </mat-card>
         
           </mat-expansion-panel>
+
+
+          <mat-expansion-panel class = "panel">
+              <mat-expansion-panel-header class="header">
+                References
+              </mat-expansion-panel-header>
+          
+              <mat-card class = "card"> <p>Used resources and more usefel information for this API: </p>
+              URL: https://earthquake.usgs.gov/fdsnws/event/1/?fbclid=IwAR31rmxDNP4hM0bHCWcVMCJmHbH27l2bYBlufx6B0GPHL9LWm9mMV0DnXz0
+              </mat-card>
+  
+              
+            </mat-expansion-panel>
         
         </mat-accordion>
   </mat-card-content>
