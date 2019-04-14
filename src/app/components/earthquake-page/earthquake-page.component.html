@@ -18,7 +18,7 @@
           <h4>Earthquakes</h4>
         </div>
       </div>
-      <agm-map [streetViewControl]="false" [latitude]="0" [longitude]="-5" [scrollwheel]="true" [zoom]="3" (mapReady)="onMapReady($event)">
+      <agm-map [streetViewControl]="false" [latitude]="50" [longitude]="0" [scrollwheel]="true" [zoom]="3" (mapReady)="onMapReady($event)">
         <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
           <agm-marker
             *ngFor="let earthquake of markers"
