@@ -9,7 +9,7 @@ describe("AuthorsPageComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppModule]
+      imports: [AppModule]
     }).compileComponents();
   }));
 

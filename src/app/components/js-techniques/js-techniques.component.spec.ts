@@ -9,7 +9,7 @@ describe("JsTechniquesComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppModule]
+      imports: [AppModule]
     }).compileComponents();
   }));
 
