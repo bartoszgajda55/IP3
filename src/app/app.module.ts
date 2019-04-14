@@ -26,6 +26,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { NoQuotemarkPipe } from "./pipes/no-quotemark/no-quotemark.pipe";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
+import { JsTechniquesComponent } from './components/js-techniques/js-techniques.component';
+import { AuthorsPageComponent } from './components/authors-page/authors-page.component';
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
@@ -39,6 +41,8 @@ import { OverviewPageComponent } from "./components/overview-page/overview-page.
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
+    AuthorsPageComponent,
+    JsTechniquesComponent,
     EarthquakePageComponent,
     FooterComponent,
     NoQuotemarkPipe,

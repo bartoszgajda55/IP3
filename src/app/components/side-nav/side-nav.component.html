@@ -10,13 +10,18 @@
         <div *ngIf="link.hasSubmenu; else noSubmenu">
           <button mat-button [routerLink]="link.href" [matMenuTriggerFor]="subMenu" routerLinkActive="active" class="side-nav__menu-item">
             {{ link.name }}
+            <i class="fas fa-caret-down"></i>
           </button>
           <mat-menu #subMenu="matMenu">
-            <button *ngFor="let sublink of link.submenu" [routerLink]="sublink.href" mat-menu-item>{{ sublink.name }}</button>
+            <button *ngFor="let sublink of link.submenu" [routerLink]="sublink.href" mat-menu-item>
+              {{ sublink.name }}
+            </button>
           </mat-menu>
         </div>
         <ng-template #noSubmenu>
-          <button mat-button [routerLink]="link.href" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</button>
+          <button mat-button [routerLink]="link.href" routerLinkActive="active" class="side-nav__menu-item">
+            {{ link.name }}
+          </button>
         </ng-template>
       </div>
     </div>
