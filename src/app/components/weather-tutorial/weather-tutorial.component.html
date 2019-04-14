@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Weather Data Tutorial</mat-card-title>
+        <mat-card-subtitle
+          >This page introduces weather, weather data fundamentals and where this data can be sourced.</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <p>The weather page was created to present the a wide range of information, covering the weather conditions for selected place. This page allows the user to choose the place using text input, that includes auto completion which helps to find major cities, regions or landmarks. The other option to find location is to use latitude and longitude inputs. After the location is chosen, a set of information for that location is fetched from Open Weather Map API. This data consists of information like:
+            <mat-list role="list">
+                <mat-list-item role="listitem">current weather conditions</mat-list-item>
+                <mat-list-item role="listitem">five day forecast</mat-list-item>
+                <mat-list-item role="listitem">Google Map tiles, showing chosen place</mat-list-item>
+              </mat-list>  
+         
+            
+            The current weather conditions are shown as a component, which is reused in many places around the website, to follow the SOLID principles. The information shown in this component may include:</p>
+            <mat-list role="list">
+                <mat-list-item role="listitem">temperature</mat-list-item>
+                <mat-list-item role="listitem">weather description, shown in a form of icon</mat-list-item>
+                <mat-list-item role="listitem">cloudiness</mat-list-item>
+                <mat-list-item role="listitem">humidity</mat-list-item>
+                <mat-list-item role="listitem">atmospheric pressure</mat-list-item>
+                <mat-list-item role="listitem">rain</mat-list-item>
+                <mat-list-item role="listitem">snow</mat-list-item>
+                <mat-list-item role="listitem">sunrise time</mat-list-item>
+                <mat-list-item role="listitem">sunset time</mat-list-item>
+              </mat-list>
+            
+
+              <p>The five day weather forecast is also presented on this page. Each day has its own tab, which makes it easy to fit in big amount of data, while ensuring the responsiveness. Only one tab can be seen at a time. The weather information shown for each day is same as a information for current weather. The extra addition to this is the temperature trend chart. It is a line chart, that presents how the temperature will vary thorough the day. The weather is recorded is 3 hour windows, resulting in maximum of 8 records per day.</p>
+
+
+      </mat-card-content>
+</mat-card>

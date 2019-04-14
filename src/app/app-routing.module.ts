@@ -5,13 +5,14 @@ import { WeatherPageComponent } from "./components/weather-page/weather-page.com
 import {EarthquakePageComponent} from './components/earthquake-page/earthquake-page.component';
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
+import { WeatherTutorialComponent } from './components/weather-tutorial/weather-tutorial.component';
 
 const routes: Routes = [
   { path: "overview", component: OverviewPageComponent },
   { path: "weather", component: WeatherPageComponent },
   { path: "earthquakes", component: EarthquakePageComponent },
   { path: "authors", component: PageNotFoundComponent },
-  { path: "tutorial", component: PageNotFoundComponent },
+  { path: "tutorial", component: WeatherTutorialComponent  },
   { path: "visualization", component: VisualizationPageComponent },
   { path: "", redirectTo: "overview", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
