@@ -4,12 +4,15 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
+import { AuthorsPageComponent } from './components/authors-page/authors-page.component';
+import {EarthquakePageComponent} from './components/earthquake-page/earthquake-page.component';
+import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 
 const routes: Routes = [
-  { path: "overview", component: PageNotFoundComponent },
+  { path: "overview", component: OverviewPageComponent },
   { path: "weather", component: WeatherPageComponent },
-  { path: "earthquakes", component: PageNotFoundComponent },
-  { path: "authors", component: PageNotFoundComponent },
+  { path: "authors", component: AuthorsPageComponent },
+  { path: "earthquakes", component: EarthquakePageComponent },
   { path: "tutorial", component: GeoJSONTutorialComponent },
   { path: "visualization", component: VisualizationPageComponent },
   { path: "", redirectTo: "overview", pathMatch: "full" },

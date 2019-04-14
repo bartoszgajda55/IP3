@@ -18,12 +18,20 @@ import { WeatherPageComponent } from "./components/weather-page/weather-page.com
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
+import { EarthquakePageComponent } from "./components/earthquake-page/earthquake-page.component";
+import { EarthquakeService } from "./services/earthquake/earthquake.service";
+import { AgmJsMarkerClustererModule } from "@agm/js-marker-clusterer";
+import { AgmSnazzyInfoWindowModule } from "@agm/snazzy-info-window";
 import { FooterComponent } from "./components/footer/footer.component";
 import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-json-tutorial.component";
+import { NoQuotemarkPipe } from "./pipes/no-quotemark/no-quotemark.pipe";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
+import { JsTechniquesComponent } from './components/js-techniques/js-techniques.component';
+import { AuthorsPageComponent } from './components/authors-page/authors-page.component';
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 
 @NgModule({
   declarations: [
@@ -34,9 +42,15 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
+    AuthorsPageComponent,
+    JsTechniquesComponent,
+    EarthquakePageComponent,
+    FooterComponent,
+    GeoJSONTutorialComponent
+    NoQuotemarkPipe,
     FooterComponent,
     VisualizationPageComponent,
-    GeoJSONTutorialComponent
+    OverviewPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,12 +65,14 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AgmJsMarkerClustererModule,
+    AgmSnazzyInfoWindowModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     }),
     NgxChartsModule
   ],
-  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper],
+  providers: [OpenWeatherService, WeatherIconService, GoogleMapsAPIWrapper, EarthquakeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
