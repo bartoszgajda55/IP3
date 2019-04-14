@@ -13,3 +13,20 @@
 p {
     font-size: 12pt;
 }
+
+
+a {
+    
+    color: black;
+    font-weight: bold;
+  }
+
+
+  @media screen and (max-width: 760px) {
+    p {
+      font-size: 10pt;
+    
+      
+    }
+    
+  }
