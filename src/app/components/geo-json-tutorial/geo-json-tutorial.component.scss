@@ -1,5 +1,8 @@
 @import "../../../styles.scss";
-.mat-expansion-panel{
+.tut-side-nav {
+  padding: 20px;
+}
+.mat-expansion-panel {
   background-color: #006064;
   color: #fff;
   width: 50%;
@@ -10,8 +13,8 @@
   background-color: #006064;
 }
 
-
-.mat-tab-labels, .mat-tab-label {
+.mat-tab-labels,
+.mat-tab-label {
   font-weight: 700;
 }
 
@@ -19,7 +22,6 @@ p {
   font-size: 12pt;
   width: 50%;
   text-align: justify;
-  
 }
 
 pre {
@@ -32,16 +34,14 @@ a {
   color: black;
 }
 .mat-list-item {
-  color:red;
+  color: red;
 }
-
 
 @media screen and (max-width: 960px) {
   p {
     font-size: 12pt;
     width: 100%;
     text-align: justify;
-    
   }
 }
 
@@ -50,13 +50,12 @@ a {
     font-size: 10pt;
     width: 100%;
     text-align: justify;
-    
   }
   pre {
     font-size: 10pt;
     font-weight: bold;
   }
-  
+
   .mat-list .mat-list-item {
     font-size: 10pt;
   }
