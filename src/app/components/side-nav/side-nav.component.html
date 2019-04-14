@@ -8,7 +8,7 @@
     <div class="side-nav__menu-container">
       <div *ngFor="let link of navLinks">
         <div *ngIf="link.hasSubmenu; else noSubmenu">
-          <button mat-button [routerLink]="link.href" [matMenuTriggerFor]="subMenu" routerLinkActive="active" class="side-nav__menu-item">
+          <button mat-button [matMenuTriggerFor]="subMenu" routerLinkActive="active" class="side-nav__menu-item">
             {{ link.name }}
             <i class="fas fa-caret-down"></i>
           </button>
