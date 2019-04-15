@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
+import { EarthquakeTutorialComponent } from "./components/earthquake-tutorial/earthquake-tutorial.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { EarthquakePageComponent } from "./components/earthquake-page/earthquake-page.component";
 import { EarthquakeService } from "./services/earthquake/earthquake.service";
@@ -32,6 +33,8 @@ import { AuthorsPageComponent } from "./components/authors-page/authors-page.com
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
+import { WeatherTutorialComponent } from './components/weather-tutorial/weather-tutorial.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { OverviewPageComponent } from "./components/overview-page/overview-page.
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
+    EarthquakeTutorialComponent,
     AuthorsPageComponent,
     JsTechniquesComponent,
     EarthquakePageComponent,
@@ -50,7 +54,9 @@ import { OverviewPageComponent } from "./components/overview-page/overview-page.
     NoQuotemarkPipe,
     FooterComponent,
     VisualizationPageComponent,
-    OverviewPageComponent
+    OverviewPageComponent,
+    WeatherTutorialComponent
+   
   ],
   imports: [
     BrowserModule,
