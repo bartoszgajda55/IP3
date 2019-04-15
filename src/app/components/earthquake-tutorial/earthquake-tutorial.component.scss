@@ -1,32 +1,23 @@
-.mat-expansion-panel {
+.earthquake-tutorial {
+  padding: 20px;
+  .mat-expansion-panel {
     background-color: rgb(0, 96, 100);
-}
-
-.mat-card {
-    margin: 10px;
-}
-
-.mat-expansion-panel-header {
+  }
+  .mat-expansion-panel-header {
     color: white;
-}
-
-p {
+  }
+  p {
     font-size: 12pt;
-}
+  }
 
-
-a {
-    
+  a {
     color: black;
     font-weight: bold;
   }
+}
 
-
-  @media screen and (max-width: 760px) {
-    p {
-      font-size: 10pt;
-    
-      
-    }
-    
+@media screen and (max-width: 760px) {
+  p {
+    font-size: 10pt;
   }
+}
