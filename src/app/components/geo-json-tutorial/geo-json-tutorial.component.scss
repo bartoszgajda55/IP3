@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+.tut-side-nav {
+  padding: 20px;
+  p {
+    font-size: 12pt;
+    text-align: justify;
+  }
+  pre {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .mat-list-item {
+    color: red;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  p {
+    font-size: 12pt;
+    width: 100%;
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  p {
+    font-size: 10pt;
+    width: 100%;
+    text-align: justify;
+  }
+  pre {
+    font-size: 10pt;
+    font-weight: bold;
+  }
+  .mat-list .mat-list-item {
+    font-size: 10pt;
+  }
+}
