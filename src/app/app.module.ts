@@ -34,7 +34,6 @@ import { VisualizationPageComponent } from "./components/visualization-page/visu
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +43,7 @@ import { OverviewPageComponent } from "./components/overview-page/overview-page.
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
-    EarthquakeTutorialComponent
+    EarthquakeTutorialComponent,
     AuthorsPageComponent,
     JsTechniquesComponent,
     EarthquakePageComponent,
