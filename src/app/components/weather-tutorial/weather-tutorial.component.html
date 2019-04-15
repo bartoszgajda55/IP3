@@ -1,50 +1,64 @@
-<mat-card>
+<div class="weather-tutorial">
+  <mat-card>
     <mat-card-header>
-        <mat-card-title>Weather Data Tutorial</mat-card-title>
-        <mat-card-subtitle>This page introduces weather, weather data fundamentals and where this data can be sourced.</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        
+      <mat-card-title>Weather Data Tutorial</mat-card-title>
+      <mat-card-subtitle>This page introduces weather, weather data fundamentals and where this data can be sourced.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Introduction">
+          <p>
+            The weather page was created to present the a wide range of information, covering the weather conditions for selected place. This page
+            allows the user to choose the place using text input, that includes auto completion which helps to find major cities, regions or
+            landmarks. The other option to find location is to use latitude and longitude inputs. After the location is chosen, a set of information
+            for that location is fetched from Open Weather Map API. This data consists of information like:
+            <mat-list role="list">
+              <mat-list-item role="listitem">current weather conditions</mat-list-item>
+              <mat-list-item role="listitem">five day forecast</mat-list-item>
+              <mat-list-item role="listitem">Google Map tiles, showing chosen place</mat-list-item>
+            </mat-list>
 
+            The current weather conditions are shown as a component, which is reused in many places around the website, to follow the SOLID
+            principles. The information shown in this component may include:
+          </p>
+          <mat-list role="list">
+            <mat-list-item role="listitem">temperature</mat-list-item>
+            <mat-list-item role="listitem">weather description, shown in a form of icon</mat-list-item>
+            <mat-list-item role="listitem">cloudiness</mat-list-item>
+            <mat-list-item role="listitem">humidity</mat-list-item>
+            <mat-list-item role="listitem">atmospheric pressure</mat-list-item>
+            <mat-list-item role="listitem">rain</mat-list-item>
+            <mat-list-item role="listitem">snow</mat-list-item>
+            <mat-list-item role="listitem">sunrise time</mat-list-item>
+            <mat-list-item role="listitem">sunset time</mat-list-item>
+          </mat-list>
 
-              <mat-tab-group>
-                  <mat-tab label="Introduction">
-                    
-                    <p>The weather page was created to present the a wide range of information, covering the weather conditions for selected place. This page allows the user to choose the place using text input, that includes auto completion which helps to find major cities, regions or landmarks. The other option to find location is to use latitude and longitude inputs. After the location is chosen, a set of information for that location is fetched from Open Weather Map API. This data consists of information like:
-                        <mat-list role="list">
-                            <mat-list-item role="listitem">current weather conditions</mat-list-item>
-                            <mat-list-item role="listitem">five day forecast</mat-list-item>
-                            <mat-list-item role="listitem">Google Map tiles, showing chosen place</mat-list-item>
-                          </mat-list>  
-
-                          The current weather conditions are shown as a component, which is reused in many places around the website, to follow the SOLID principles. The information shown in this component may include:</p>
-                          <mat-list role="list">
-                              <mat-list-item role="listitem">temperature</mat-list-item>
-                              <mat-list-item role="listitem">weather description, shown in a form of icon</mat-list-item>
-                              <mat-list-item role="listitem">cloudiness</mat-list-item>
-                              <mat-list-item role="listitem">humidity</mat-list-item>
-                              <mat-list-item role="listitem">atmospheric pressure</mat-list-item>
-                              <mat-list-item role="listitem">rain</mat-list-item>
-                              <mat-list-item role="listitem">snow</mat-list-item>
-                              <mat-list-item role="listitem">sunrise time</mat-list-item>
-                              <mat-list-item role="listitem">sunset time</mat-list-item>
-                            </mat-list>
-
-                          <p>The five day weather forecast is also presented on this page. Each day has its own tab, which makes it easy to fit in big amount of data, while ensuring the responsiveness. Only one tab can be seen at a time. The weather information shown for each day is same as a information for current weather. The extra addition to this is the temperature trend chart. It is a line chart, that presents how the temperature will vary thorough the day. The weather is recorded is 3 hour windows, resulting in maximum of 8 records per day.</p>
-              
-                  </mat-tab>
-                  <mat-tab label="Open Weather Map API">
-                    
-                    <p>For the creation of the weather page we have used the Open Weather Map API. </p>
-                    <p>The URL to access the data is: https://api.openweathermap.org/data/2.5</p>
-                    <p>In order to request the appropriate information a set of parameters must be added to the end of the URL.
-                       We have used geographic coordinates - latitude and longitude. </p>
-                      <p> URL example: <a href="https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22">api.openweathermap.org/data/2.5/weather?lat=35&lon=139</a></p>
-                      <p> The paramters <i>lat</i> and <i>lon</i> are specified and the data is requested.</p>
-                      <p> This example returns a JSON format containing information about the location specified.</p>
-                       <p>URL example response:</p> 
-                       <mat-card class="weather-card">
-                      <pre> {{ "{" }}"coord": {{ "{" }}"lon":139,"lat":35 {{ "}" }},
+          <p>
+            The five day weather forecast is also presented on this page. Each day has its own tab, which makes it easy to fit in big amount of data,
+            while ensuring the responsiveness. Only one tab can be seen at a time. The weather information shown for each day is same as a information
+            for current weather. The extra addition to this is the temperature trend chart. It is a line chart, that presents how the temperature will
+            vary thorough the day. The weather is recorded is 3 hour windows, resulting in maximum of 8 records per day.
+          </p>
+        </mat-tab>
+        <mat-tab label="Open Weather Map API">
+          <p>For the creation of the weather page we have used the Open Weather Map API.</p>
+          <p>The URL to access the data is: https://api.openweathermap.org/data/2.5</p>
+          <p>
+            In order to request the appropriate information a set of parameters must be added to the end of the URL. We have used geographic
+            coordinates - latitude and longitude.
+          </p>
+          <p>
+            URL example:
+            <a href="https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22"
+              >api.openweathermap.org/data/2.5/weather?lat=35&lon=139</a
+            >
+          </p>
+          <p>The paramters <i>lat</i> and <i>lon</i> are specified and the data is requested.</p>
+          <p>This example returns a JSON format containing information about the location specified.</p>
+          <p>URL example response:</p>
+          <mat-card class="weather-card">
+            <pre>
+ {{ "{" }}"coord": {{ "{" }}"lon":139,"lat":35 {{ "}" }},
                           "sys": {{ "{" }}"country":"JP","sunrise":1369769524,"sunset":1369821049 {{ "}" }},
                           "weather":[ {{ "{" }}"id":804,"main":"clouds","description":"overcast clouds","icon":"04n" {{ "}" }}],
                           "main": {{ "{" }}"temp":289.5,"humidity":89,"pressure":1013,"temp_min":287.04,"temp_max":292.04 {{ "}" }},
@@ -54,35 +68,41 @@
                           "dt":1369824698,
                           "id":1851632,
                           "name":"Shuzenji",
-                          "cod":200 {{ "}" }}</pre>
-                          </mat-card>
-                          <p>The information we use from the returned response are "temp", "humidity", "pressure, "sunrise", "sunset", "pressure" and "description".</p>
+                          "cod":200 {{ "}" }}</pre
+            >
+          </mat-card>
+          <p>
+            The information we use from the returned response are "temp", "humidity", "pressure, "sunrise", "sunset", "pressure" and "description".
+          </p>
 
+          <p>This API provides the option to get a 5 day forecast data.</p>
+          <p>
+            URL example:
+            <a href="https://samples.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22"
+              >api.openweathermap.org/data/2.5/forecast?lat=35&lon=139</a
+            >
+          </p>
+          <p>This example returns a JSON format containing a 5 day forecast data for the specified location.</p>
 
-                    <p> This API provides the option to get a 5 day forecast data.</p>
-                      <p> URL example: <a href="https://samples.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22">api.openweathermap.org/data/2.5/forecast?lat=35&lon=139</a></p>
-                      <p>  This example returns a JSON format containing a 5 day forecast data for the specified location.</p>
-
-                       <p> For our application we use longitude and latitude, but the API provides us with different parameters we can use. For example,
-                        data can be requested by city name.</p>
-                       <p> URL example: <a href="https://samples.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid=b6907d289e10d714a6e88b30761fae22">api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml</a></p>
-                        <p>This example returns a 5 day forecast for London.</p>
-                        <p>The API provides the option to choose in what format the response should be. The formats could be HTML, JSON or XML.</p>
-                       
-                    
-                  </mat-tab>
-
-
-
-                  <mat-tab label="References">
-                    <p>Resources used: </p>
-                     <p> <a href="https://openweathermap.org/current">https://openweathermap.org/current</a></p>
-                      <p><a href="https://openweathermap.org/current">https://openweathermap.org/forecast5</a></p>
-                      
-                    </mat-tab>
-                </mat-tab-group>
-
-
-
-      </mat-card-content>
-</mat-card>
+          <p>
+            For our application we use longitude and latitude, but the API provides us with different parameters we can use. For example, data can be
+            requested by city name.
+          </p>
+          <p>
+            URL example:
+            <a href="https://samples.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid=b6907d289e10d714a6e88b30761fae22"
+              >api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml</a
+            >
+          </p>
+          <p>This example returns a 5 day forecast for London.</p>
+          <p>The API provides the option to choose in what format the response should be. The formats could be HTML, JSON or XML.</p>
+        </mat-tab>
+        <mat-tab label="References">
+          <p>Resources used:</p>
+          <p><a href="https://openweathermap.org/current">https://openweathermap.org/current</a></p>
+          <p><a href="https://openweathermap.org/current">https://openweathermap.org/forecast5</a></p>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
