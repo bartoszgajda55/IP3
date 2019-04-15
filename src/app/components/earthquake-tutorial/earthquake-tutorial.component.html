@@ -1,0 +1,160 @@
+<div class="earthquake-tutorial">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Earthquake Data Tutorial</mat-card-title>
+      <mat-card-subtitle>This page introduces earthquakes, earthquake data fundamentals and where this data can be sourced.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p class="content">
+        The earthquake page was created to present information about earthquakes for the last hour, all day or all month. For each earthquake a card
+        with information is provided. The card contains data about the magnitude, place, time and type of the earthquake. To gather all of the data we
+        have used the Earthquake Catalog API. Below we have explained how to use the API.
+      </p>
+
+      <p>The URL for accessing the data is:</p>
+      <h3>https://earthquake.usgs.gov/fdsnws/event/1/[METHOD[?PARAMETERS]]</h3>
+      <p>
+        Different methods and parameters can be used to filter the data. The parameters are key=value pairs using the HTTP GET method. These methods
+        and parameters are listed below.
+      </p>
+      <mat-accordion class="accordion">
+        <mat-expansion-panel class="panel">
+          <mat-expansion-panel-header class="header">
+            Methods
+          </mat-expansion-panel-header>
+
+          <mat-card class="card">
+            <p>To submit data request:</p>
+            <h4>query</h4>
+            <p>
+              URL:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-04-01&endtime=2019-04-02"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-04-01&endtime=2019-04-02</a
+              >
+            </p>
+          </mat-card>
+
+          <mat-card class="card">
+            <p>To perform a count on a data request:</p>
+            <h4>count</h4>
+            <p>
+              URL:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson"
+                >https://earthquake.usgs.gov/fdsnws/event/1/count?format=geojson</a
+              >
+            </p>
+          </mat-card>
+
+          <mat-card class="card">
+            <p>To request available catalogs:</p>
+            <h4>catalogs</h4>
+            <p>URL: <a href="https://earthquake.usgs.gov/fdsnws/event/1/catalogs">https://earthquake.usgs.gov/fdsnws/event/1/catalogs</a></p>
+          </mat-card>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            Parameters
+          </mat-expansion-panel-header>
+
+          <mat-card class="card">
+            <h3>Formats: specify the data format</h3>
+            <p>
+              The format can be <i>csv</i>, <i>geojson</i>, <i>kml</i>, <i>quakeml</i>, <i>text</i> or <i>xml</i>. If a format is not specified the
+              default one is <i>quakeml</i>.
+            </p>
+
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=xml">https://earthquake.usgs.gov/fdsnws/event/1/query?format=xml </a>
+            </p>
+            <p>This example will return the specified data in the xml format.</p>
+          </mat-card>
+
+          <mat-card class="card">
+            <h3>Time: specify the timeframe for which earthquakes happened</h3>
+            <p>
+              All times use the ISO8601 Date/Time format, for example 2019-04-08T18:15:34. The parameters can be <i>endtime</i>, <i>starttime</i> or
+              <i>updatedafter</i>.
+            </p>
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2014-04-01&endtime=2014-04-02"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2014-04-01&endtime=2014-04-02</a
+              >
+            </p>
+            <p>This example will return all earthquake between 1st and 2nd April.</p>
+          </mat-card>
+
+          <mat-card class="card">
+            <h3>Location: specify the coordinates for a location</h3>
+            <p>
+              The paramaters can be <i>minlatitude</i>, <i>maxlatitude</i>, <i>minlongitude</i>, <i>maxlongitude</i>. For minlatitude and maxlatitude
+              the value must be between -90 and 90 degrees. For minlongitude and maxlongitude the value must be between -360 and 360 degrees.
+            </p>
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=42.9&maxlongitude=43"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=42.9&maxlongitude=43</a
+              >
+            </p>
+            <p>This example will return all earthquakes that happened in the range specified.</p>
+
+            <p>
+              To perform a circle search the request should contain all of the following parameters: <i>latitude</i> (value between -90 and 90),
+              <i>longitude</i> (value between -180 and 180), <i>maxradius</i> (value between 0 and 180).
+            </p>
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=55.864239&longitude=-4.251806&maxradius=20"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=55.864239&longitude=-4.251806&maxradius=20</a
+              >
+            </p>
+            <p>This example will return all earthquakes for the specified coordinates.</p>
+          </mat-card>
+
+          <mat-card class="card">
+            <h3>Other parameters</h3>
+            <p>
+              Some other useful parameter is <i>orderby</i>, which orders the request by <i>time</i>, <i>time-asc</i>, <i>magnitude</i>,
+              <i>magnitude-asc</i>.
+            </p>
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time</a
+              >
+            </p>
+            <p>This example will return all earthquakes ordered by time in descending order.</p>
+
+            <p>Another parameter is <i>maxmagnitude</i> which limits the earthquakes with a magnitude smaller than the specified magnitude.</p>
+            <p>
+              URL example:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&maxmagnitude=8"
+                >https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&maxmagnitude=8</a
+              >
+            </p>
+            <p>This example will return earthquakes with magnitude less than the value specified.</p>
+          </mat-card>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="panel">
+          <mat-expansion-panel-header class="header">
+            References
+          </mat-expansion-panel-header>
+
+          <mat-card class="card">
+            <p>Used resources and more usefel information for this API:</p>
+            <p>
+              URL:
+              <a href="https://earthquake.usgs.gov/fdsnws/event/1/?fbclid=IwAR31rmxDNP4hM0bHCWcVMCJmHbH27l2bYBlufx6B0GPHL9LWm9mMV0DnXz0"
+                >https://earthquake.usgs.gov/fdsnws/event/1/?fbclid=IwAR31rmxDNP4hM0bHCWcVMCJmHbH27l2bYBlufx6B0GPHL9LWm9mMV0DnXz0</a
+              >
+            </p>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

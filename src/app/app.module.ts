@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { WeatherPageComponent } from "./components/weather-page/weather-page.component";
 import { WeatherPresenterComponent } from "./components/weather-presenter/weather-presenter.component";
 import { ForecastPresenterComponent } from "./components/forecast-presenter/forecast-presenter.component";
+import { EarthquakeTutorialComponent } from "./components/earthquake-tutorial/earthquake-tutorial.component";
 import { NoCommaPipe } from "./pipes/no-comma.pipe";
 import { EarthquakePageComponent } from "./components/earthquake-page/earthquake-page.component";
 import { EarthquakeService } from "./services/earthquake/earthquake.service";
@@ -44,6 +45,7 @@ import { WeatherTutorialComponent } from './components/weather-tutorial/weather-
     WeatherPresenterComponent,
     ForecastPresenterComponent,
     NoCommaPipe,
+    EarthquakeTutorialComponent,
     AuthorsPageComponent,
     JsTechniquesComponent,
     EarthquakePageComponent,
