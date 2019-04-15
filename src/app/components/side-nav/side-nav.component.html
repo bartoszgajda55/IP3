@@ -6,14 +6,39 @@
     <a routerLink="/"><img src="assets/logo.png" class="side-nav__logo" alt="Vetero - Site Logo"/></a>
     <span class="side-nav__spacer"></span>
     <div class="side-nav__menu-container">
-      <a *ngFor="let link of navLinks" routerLink="{{ link.href }}" routerLinkActive="active" class="side-nav__menu-item">{{ link.name }}</a>
+      <div *ngFor="let link of navLinks">
+        <div *ngIf="link.hasSubmenu; else noSubmenu">
+          <button mat-button [matMenuTriggerFor]="subMenu" routerLinkActive="active" class="side-nav__menu-item">
+            {{ link.name }}
+            <i class="fas fa-caret-down"></i>
+          </button>
+          <mat-menu #subMenu="matMenu">
+            <button *ngFor="let sublink of link.submenu" [routerLink]="sublink.href" mat-menu-item>
+              {{ sublink.name }}
+            </button>
+          </mat-menu>
+        </div>
+        <ng-template #noSubmenu>
+          <button mat-button [routerLink]="link.href" routerLinkActive="active" class="side-nav__menu-item">
+            {{ link.name }}
+          </button>
+        </ng-template>
+      </div>
     </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="side-nav__container" [class.container--extra-margin]="mobileQuery.matches">
     <mat-sidenav #snav mode="over" fixedInViewport="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a *ngFor="let link of navLinks" mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+        <div *ngFor="let link of navLinks">
+          <div *ngIf="link.hasSubmenu; else noSubmenu">
+            <a mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+            <a mat-list-item *ngFor="let sublink of link.submenu" routerLink="{{ sublink.href }}" (click)="snav.toggle()">{{ sublink.name }}</a>
+          </div>
+          <ng-template #noSubmenu>
+            <a mat-list-item routerLink="{{ link.href }}" (click)="snav.toggle()">{{ link.name }}</a>
+          </ng-template>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
 

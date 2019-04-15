@@ -1,0 +1,47 @@
+<div class="earthquake">
+  <mat-card>
+    <mat-card-title>Earthquake Map</mat-card-title>
+    <mat-card-subtitle>This page allows to receive current earthquakes</mat-card-subtitle>
+    <mat-card-content>
+      <div class="header" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
+        <div class="select_earthquakes" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Select Earthquake Time Frame:</h4>
+          <mat-form-field>
+            <mat-select placeholder="Select Time Frame" (selectionChange)="onTimeFrameChange($event)">
+              <mat-option value="day">All day</mat-option>
+              <mat-option value="hour">Last Hour</mat-option>
+              <mat-option value="month">All month</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="earthquakes_info" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
+          <h4>Earthquakes</h4>
+        </div>
+      </div>
+      <agm-map [streetViewControl]="false" [latitude]="50" [longitude]="0" [scrollwheel]="true" [zoom]="3" (mapReady)="onMapReady($event)">
+        <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+          <agm-marker
+            *ngFor="let earthquake of markers"
+            [latitude]="earthquake.geometry.coordinates[1]"
+            [longitude]="earthquake.geometry.coordinates[0]"
+          >
+            <agm-snazzy-info-window
+              closeWhenOthersOpen="true"
+              isOpen="false"
+              maxHeight="200px"
+              [latitude]="earthquake.geometry.coordinates[1]"
+              [longitude]="earthquake.geometry.coordinates[0]"
+            >
+              <ng-template>
+                <p><strong>Magnitude: </strong> {{ earthquake.properties.mag }}</p>
+                <p><strong>Place: </strong> {{ earthquake.properties.place }}</p>
+                <p><strong>Time: </strong> {{ earthquake.properties.time | date }}</p>
+                <p><strong>Type: </strong> {{ earthquake.properties.type }}</p>
+              </ng-template>
+            </agm-snazzy-info-window>
+          </agm-marker>
+        </agm-marker-cluster>
+      </agm-map>
+    </mat-card-content>
+  </mat-card>
+</div>
