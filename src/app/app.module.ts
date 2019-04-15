@@ -33,6 +33,8 @@ import { AuthorsPageComponent } from "./components/authors-page/authors-page.com
 import { VisualizationPageComponent } from "./components/visualization-page/visualization-page.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
+import { WeatherTutorialComponent } from './components/weather-tutorial/weather-tutorial.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { OverviewPageComponent } from "./components/overview-page/overview-page.
     NoQuotemarkPipe,
     FooterComponent,
     VisualizationPageComponent,
-    OverviewPageComponent
+    OverviewPageComponent,
+    WeatherTutorialComponent
+   
   ],
   imports: [
     BrowserModule,
