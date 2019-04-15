@@ -7,6 +7,7 @@ import { GeoJSONTutorialComponent } from "./components/geo-json-tutorial/geo-jso
 import { AuthorsPageComponent } from "./components/authors-page/authors-page.component";
 import { EarthquakePageComponent } from "./components/earthquake-page/earthquake-page.component";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
+import { WeatherTutorialComponent } from "./components/weather-tutorial/weather-tutorial.component";
 import { JsTechniquesComponent } from "./components/js-techniques/js-techniques.component";
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "weather", component: WeatherPageComponent },
   { path: "authors", component: AuthorsPageComponent },
   { path: "earthquakes", component: EarthquakePageComponent },
+  { path: "weather-tutorial", component: WeatherTutorialComponent },
   { path: "geojson", component: GeoJSONTutorialComponent },
   { path: "javascript", component: JsTechniquesComponent },
   { path: "visualization", component: VisualizationPageComponent },
