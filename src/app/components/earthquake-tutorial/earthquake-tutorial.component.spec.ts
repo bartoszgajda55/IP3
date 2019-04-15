@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { EarthquakeTutorialComponent } from "./earthquake-tutorial.component";
-import { AppComponent } from "src/app/app.component";
+import { AppModule } from "src/app/app.module";
 
 describe("EarthquakeTutorialComponent", () => {
   let component: EarthquakeTutorialComponent;
@@ -9,7 +8,7 @@ describe("EarthquakeTutorialComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppComponent]
+      imports: [AppModule]
     }).compileComponents();
   }));
 
