@@ -45,7 +45,7 @@ export default [
     name: "Joint display of speed wind (color) and wind direction (arrows), received by U and V components",
     value: "WND",
     description:
-      "Wind direction is reported by the direction from which it originates. For example, a northerly wind blows from the north to the south.[1] Wind direction is usually reported in cardinal directions or in azimuth degrees. Wind direction is measured in degrees clockwise from due north."
+      "Wind direction is reported by the direction from which it originates. For example, a northerly wind blows from the north to the south. Wind direction is usually reported in cardinal directions or in azimuth degrees. Wind direction is measured in degrees clockwise from due north."
   },
   {
     name: "Atmospheric pressure on mean sea level",
