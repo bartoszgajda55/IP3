@@ -1,7 +1,9 @@
 export default [
   {
     name: "Convective precipitation",
-    value: "PAC0"
+    value: "PAC0",
+    description:
+      "Convection occurs when the Earth's surface, especially within a conditionally unstable or moist atmosphere, becomes heated more than its surroundings and in turn leading to significant evaporation. Convective rain and light precipitation are the result of convective clouds, for example cumulonimbus or cumulus congestus. In the initial stages of this precipitation, it generally falls as showers with rapidly changing intensity."
   },
   {
     name: "Precipitation intensity",
