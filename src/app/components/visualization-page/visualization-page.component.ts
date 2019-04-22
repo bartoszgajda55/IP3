@@ -15,12 +15,14 @@ export class VisualizationPageComponent {
   private map: any;
   private layerCode: string;
   public layerDescription: string;
+  public layerName: string;
   public availableMapLayers: any[] = layers;
   public mapStyles = styles;
 
   public onMapReady(map): void {
     this.layerCode = this.availableMapLayers[0].value;
     this.layerDescription = this.availableMapLayers[0].description;
+    this.layerName = this.availableMapLayers[0].name;
     this.map = map;
     this.setMapWithLayer(this.layerCode, this.map);
   }
@@ -28,6 +30,7 @@ export class VisualizationPageComponent {
   public handleUserMapLayerSelection(event: MatSelectChange): void {
     let target = (event.source.selected as any)._element.nativeElement;
     this.layerCode = event.value;
+    this.layerName = event.source.triggerValue;
     this.layerDescription = target.getAttribute("data-description");
     this.setMapWithLayer(this.layerCode, this.map);
   }
