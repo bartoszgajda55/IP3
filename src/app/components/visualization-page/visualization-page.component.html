@@ -1,21 +1,39 @@
 <div class="visualization">
   <mat-card>
     <mat-card-title>Visualizations</mat-card-title>
-    <mat-card-subtitle
-      >This page contains 14 different visualizations, displayed on the Google Map in the form of tiles. You can select every of them, using the
-      dropdown below, which will plot the appropriate tiles over the map, along with presenting brief information about the current layer displayed.
-      All of these different visualizations are displayed in one page only as opposed to four specified to project specification. This is beacuse one
-      page requires less resources to display, therefore application is smaller and faster.</mat-card-subtitle
-    >
+    <mat-card-subtitle>
+      <p>
+        <strong>About: </strong>This page contains 14 different visualizations, displayed on the Google Map in the form of tiles.
+        You can select every of them, using the dropdown below, which will plot the appropriate tiles over the map, along with
+        presenting brief information about the current layer displayed. All of these different visualizations are displayed in one
+        page only as opposed to four specified to project specification. This is beacuse one page requires less resources to
+        display, therefore application is smaller and faster.
+      </p>
+      <p><strong>Technologies used:</strong> Google Map, OpenWeatherMap API, Google Map Image Map API</p>
+      <p>
+        <strong>Development:</strong> A Google Map object, is split into tiles, each representing separate part of the globe.
+        After selecting a layerr, each tile is fetched from OpenWeatherMap API, using 4 variables: Zoom of the Map, Layer Code, X
+        coordinates and Y coordinates. Zomming in our out triggers same functions that fetches the tiles for appropriate zoom
+        level automatically.
+      </p>
+      <p>
+        <strong>Result:</strong> User can get valuable and interesting information about many weather all around the globe. The
+        data presented in the visualization in innovative way is easy to understand and fun to interact with. The User can gain
+        more memorable information and compare different layers across continents and countries.
+      </p>
+    </mat-card-subtitle>
     <mat-card-content fxLayout="column">
       <div fxLayout="row wrap">
         <div class="visualization__form" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h4>Select Map Overlay</h4>
           <mat-form-field>
             <mat-select placeholder="Select Map Overlay" (selectionChange)="handleUserMapLayerSelection($event)" required>
-              <mat-option *ngFor="let layer of availableMapLayers" [value]="layer.value" [attr.data-description]="layer.description">{{
-                layer.name
-              }}</mat-option>
+              <mat-option
+                *ngFor="let layer of availableMapLayers"
+                [value]="layer.value"
+                [attr.data-description]="layer.description"
+                >{{ layer.name }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
