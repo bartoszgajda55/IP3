@@ -1,5 +1,5 @@
 /// <reference types="@types/googlemaps" />
-import { Component, ElementRef, NgZone, ViewChild } from "@angular/core";
+import { Component, ElementRef, NgZone, ViewChild, ViewEncapsulation } from "@angular/core";
 import { FormControl, NgForm } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { OpenWeatherService } from "src/app/services/open-weather/open-weather.service";
@@ -12,7 +12,8 @@ import { MatSnackBar } from "@angular/material";
 @Component({
   selector: "app-weather",
   templateUrl: "./weather-page.component.html",
-  styleUrls: ["./weather-page.component.scss"]
+  styleUrls: ["./weather-page.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class WeatherPageComponent {
   public lat: number;
