@@ -1,6 +1,5 @@
 /// <reference types="@types/googlemaps" />
-import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { Component, ViewEncapsulation } from "@angular/core";
 import { MatSelectChange } from "@angular/material";
 import styles from "../../data/map-style";
 import layers from "../../data/map-layers";
@@ -9,7 +8,8 @@ import {} from "googlemaps";
 @Component({
   selector: "app-visualization-page",
   templateUrl: "./visualization-page.component.html",
-  styleUrls: ["./visualization-page.component.scss"]
+  styleUrls: ["./visualization-page.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class VisualizationPageComponent {
   private map: any;
