@@ -1,5 +1,8 @@
 .weather {
   padding: 20px;
+  .mat-card-subtitle {
+    font-size: 16px;
+  }
   .weather__container {
     padding: 0 16px;
     .weather__location {
