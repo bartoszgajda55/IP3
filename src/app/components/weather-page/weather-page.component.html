@@ -2,56 +2,63 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>Weather Map</mat-card-title>
-      <mat-card-subtitle>
-        <p>
-          <strong>About: </strong>
-          The Weather Page presented relevant weather information, both current and five day forecast to the user. Along with the
-          information, a graph of temperature trend for each of the forecasted day is shown. The weather is presented for specific
-          location which can be chosen by entering location name or by providing the latitude and longitude of the desired
-          location.
-        </p>
-        <p>
-          Finding the place by place name, provides the User with autocompletion, so selecting the desired city or place is much
-          easier. An extra option was added for user convinience, which is fetching the location automatically.
-        </p>
-        <p>
-          If the location permission will be granted, the Vetero will fetch the current position of the device, and display it on
-          the map, along with relevant weather information.
-        </p>
-        <p>
-          The weather information that can be displayed, includes: air temperature, weather name along with logo, cloudiness,
-          atmospheric pressure, humidity, sunrise time, sunset time, rain intensity and snow intensity. Last 2 of these are
-          optional parameters, as not every location can have a rain or snow forecasted.
-        </p>
-        <p>
-          <strong>Technologies used:</strong>
-          Google Map <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">(link)</a>,
-          OpenWeatherMap API <a target="_blank" href="https://openweathermap.org/api/weather-map-2">(link)</a>, ngx-charts
-          <a target="_blank" href="https://swimlane.github.io/ngx-charts/">(link)</a>
-        </p>
-        <p>
-          <strong>Development:</strong>
-          At the start the current user location fetch is attempted. If permssion is allowed, then the location is displayed on
-          the Google Map. Then current and forecast weather is displayed in appropriate widgets. If no permission is allowed, then
-          the default location of Glasgow is being used.
-        </p>
-        <p>
-          After initial load, the User can provide the location he or she is looking for by either entering the place name, or
-          providing the latitude and longitude. After selecting any of these, same process applies of fetching the Google Map
-          location, along with current and forecasted weather data.
-        </p>
-        <p>
-          The forecasted weather is being displayed as tabs, each corresponding to separate day. Each forecasted day provides
-          information equal to the ones from current weather, as well as temperature trend throughout the day.
-        </p>
-        <p>
-          <strong>Result:</strong> User is provided with fresh and relevant information on weather in his current location, or the
-          location he is interested in. Additionally, the five day forecast is presented, showing the weather conditions in the
-          following days.
-        </p>
-      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              About the Page
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            <strong>About: </strong>
+            The Weather Page presented relevant weather information, both current and five day forecast to the user. Along with
+            the information, a graph of temperature trend for each of the forecasted day is shown. The weather is presented for
+            specific location which can be chosen by entering location name or by providing the latitude and longitude of the
+            desired location.
+          </p>
+          <p>
+            Finding the place by place name, provides the User with autocompletion, so selecting the desired city or place is much
+            easier. An extra option was added for user convinience, which is fetching the location automatically.
+          </p>
+          <p>
+            If the location permission will be granted, the Vetero will fetch the current position of the device, and display it
+            on the map, along with relevant weather information.
+          </p>
+          <p>
+            The weather information that can be displayed, includes: air temperature, weather name along with logo, cloudiness,
+            atmospheric pressure, humidity, sunrise time, sunset time, rain intensity and snow intensity. Last 2 of these are
+            optional parameters, as not every location can have a rain or snow forecasted.
+          </p>
+          <p>
+            <strong>Technologies used:</strong>
+            Google Map <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">(link)</a>,
+            OpenWeatherMap API <a target="_blank" href="https://openweathermap.org/api/weather-map-2">(link)</a>, ngx-charts
+            <a target="_blank" href="https://swimlane.github.io/ngx-charts/">(link)</a>
+          </p>
+          <p>
+            <strong>Development:</strong>
+            At the start the current user location fetch is attempted. If permssion is allowed, then the location is displayed on
+            the Google Map. Then current and forecast weather is displayed in appropriate widgets. If no permission is allowed,
+            then the default location of Glasgow is being used.
+          </p>
+          <p>
+            After initial load, the User can provide the location he or she is looking for by either entering the place name, or
+            providing the latitude and longitude. After selecting any of these, same process applies of fetching the Google Map
+            location, along with current and forecasted weather data.
+          </p>
+          <p>
+            The forecasted weather is being displayed as tabs, each corresponding to separate day. Each forecasted day provides
+            information equal to the ones from current weather, as well as temperature trend throughout the day.
+          </p>
+          <p>
+            <strong>Result:</strong> User is provided with fresh and relevant information on weather in his current location, or
+            the location he is interested in. Additionally, the five day forecast is presented, showing the weather conditions in
+            the following days.
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
       <div class="weather__container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
         <div class="weather__location" fxFlex="0 1 100%" fxFlex.gt-sm="0 1 50%">
           <h3 class="weather__header">Choose Location</h3>
